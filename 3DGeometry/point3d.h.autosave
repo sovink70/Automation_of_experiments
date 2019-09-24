@@ -1,0 +1,29 @@
+#ifndef VECTOR3D_H
+#define VECTOR3D_H
+
+#include <math.h>
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+class Vector {
+private:
+    double _x, _y, _z;
+public:
+    Vector(double x, double y, double z);
+
+    double get_x() const;
+    double get_y() const;
+    double get_z() const;
+
+    void set_x(double x);
+    void set_y(double y);
+    void set_z(double z);
+
+    friend ostream& operator<< (ostream &, const Vector&); // теперь можно без геттеров, потому что мы подружили оператор с классом point
+};
+
+
+
+#endif // VECTOR3D_H
