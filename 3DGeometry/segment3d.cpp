@@ -1,10 +1,10 @@
-#include <iostream>
+//#include <iostream>
 
-#include "segment3d.h"
+//#include "segment3d.h"
 
-#include <cmath>
+//#include <cmath>
 
-using namespace std;
+//using namespace std;
 
 //#include <vector>
 //vector <int> vi;

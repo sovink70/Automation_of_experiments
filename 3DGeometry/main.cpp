@@ -1,16 +1,16 @@
 #include <iostream>
-//#include <iomanip>
 
-#include "segment3d.h"
+#include  "segment3d.h"
 #include "vector3d.h"
 
 #include <cmath>
+using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
 
 
-    Vector v1(1.0, 2.0, 4.0);
+    Vector < double > v1(1.0, 2.0, 4.0);
     cout << v1 << endl;
 
     return 0;
