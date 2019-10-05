@@ -12,7 +12,7 @@ public:
         _Direction = Direction;
     }
 
-protected:
+//protected:
     Vector < T > _Point;
     Vector < T > _Direction;
 

@@ -6,7 +6,11 @@
 
 template < class T >
 class Segment {
+
 public:
+    //protected:
+        Vector < T > _startPoint;
+        Vector < T > _endPoint;
     Segment(const Vector < T > &startPoint, const Vector < T > &endPoint) {
         _startPoint = startPoint;
         _endPoint = endPoint;
@@ -18,16 +22,12 @@ public:
 //            cout<<"Segment constructor"<<endl;
 //        }
 
-protected:
-    Vector < T > _startPoint;
-    Vector < T > _endPoint;
-
     Vector < T > Shift();
 };
 
 template < class T >
 Vector < T > Segment < T >::Shift() {
-    return Vector < T >(_endPoint._x-_startPoint._x, _endPoint._y-_startPoint._y, _endPoint._z-_startPoint._z) ; // need to displace vector
+    return Vector < T >(_endPoint.get_x()-_startPoint.get_x(), _endPoint.get_y()-_startPoint.get_y(), _endPoint.get_z()-_startPoint.get_z()) ; // need to displace vector in 0, 0, 0
 }
 
 #endif

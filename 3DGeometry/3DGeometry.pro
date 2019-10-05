@@ -5,12 +5,14 @@ CONFIG -= qt
 
 SOURCES += \
     main.cpp \
-    methods.cpp
+    methods.cpp \
+    Testlib.cpp
 
 HEADERS += \
     segment3d.h \
     line3d.h \
     vector3d.h \
     sphere3d.h \
-    plane3d.h
+    plane3d.h \
+    Testlib.h
 

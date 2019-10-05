@@ -14,7 +14,7 @@ public:
         _D = D;
     }
 
-protected:
+//protected:
     T _A, _B, _C, _D;
 
     double abs();

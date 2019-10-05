@@ -7,14 +7,14 @@
 template < class T >
 class Sphere {
 public:
-    Sphere(const Vector < T > &Center, const double &R) {
+    Sphere(const Vector < T > &Center, const T &R) {
         _Center = Center;
         _R = R;
     }
 
-protected:
+//protected:
     Vector < T > _Center;
-    double _R;
+    T _R;
 
 };
 
