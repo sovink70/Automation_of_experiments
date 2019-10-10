@@ -59,7 +59,7 @@ void Test_Vector() {
         Vector <int> v1(x1, y1, z1);
         Vector <int> v2(x2, y2, z2);
         Vector <int> v3 =v1^v2;
-       ASSERT_MSG( ( (v3.get_x() == y1*z2-y2*z1) && (v3.get_y() == x1*z2-x2*z1) && (v3.get_z() == x1*y2-x2*y1) ), "Cross=Vector product works well");
+       ASSERT_MSG( ( (v3.get_x() == y1*z2-y2*z1) && (v3.get_y() == z1*x2-x1*z2) && (v3.get_z() == x1*y2-y1*x2) ), "Cross=Vector product works well");
     }
 }
 
@@ -93,7 +93,7 @@ void Test_Line() {
        Vector <int> d(x2, y2, z2);
        Line <int> l(p, d);
        ASSERT_MSG(l._Point == p, "Line.Point equals to itself");
-       ASSERT_MSG(l._Direction == p, "Line.Direction equals to itself");
+       ASSERT_MSG(l._Direction == d, "Line.Direction equals to itself");
     }
 }
 
@@ -129,8 +129,10 @@ void TestAll() {
 
 int main() {
     TestAll();
-//    Vector < double > v1(1.0, 2.0, 4.0);
-//    cout << v1 << endl;
+    Vector < double > v1(1.0, 2.0, 1.0);
+    Vector < double > v2(2.0, -2.0, 2.0);
+    Line < double > pl(v1, v2);
+    cout << pl << endl;
 
     return 0;
 }

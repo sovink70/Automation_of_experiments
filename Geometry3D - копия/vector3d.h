@@ -24,7 +24,7 @@ public:
     void set_z(const T &z);
 
     template < class V >
-    friend ostream& operator<< (ostream&, const Vector < V > &); // теперь можно без геттеров, потому что мы подружили оператор с классом Vector
+    friend ostream& operator<< (ostream&, const Vector < V > &); // теперь выводить в консоль можно без геттеров, потому что мы подружили оператор с классом Vector
 
     Vector <T> operator+(const Vector<T>&) const;// на запись а=а+б будет ругаться, мы же не можем менять а, внутри скобок рядом с поинт можно не писать переменную
     Vector <T> operator-(const Vector<T>&) const;
@@ -140,7 +140,7 @@ double Vector<T>::operator *(const Vector<T> &b) const{
 
 template < class T >
 Vector<T> Vector<T>::operator ^(const Vector<T> &b) const{
-        Vector  c(0.0, 0.0, 0.0);
+        Vector<T> c;
         c._x = this->_y*b._z - this->_z*b._y;
         c._y = this->_z*b._x - this->_x*b._z;
         c._z = this->_x*b._y - this->_y*b._x;

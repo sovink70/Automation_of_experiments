@@ -23,7 +23,16 @@ public:
 //        }
 
     Vector < T > Shift();
+    template < class V >
+    friend ostream& operator<< (ostream&, const Segment < V > &); // теперь выводить в консоль можно без геттеров, потому что мы подружили оператор с классом Vector
+
 };
+
+template < class T >
+ostream& operator<< (ostream& os, const Segment<T>& sgm){
+    os << "Segment {" << sgm._startPoint << "---" << sgm._endPoint << "}" ;
+    return os;
+}
 
 template < class T >
 Vector < T > Segment < T >::Shift() {

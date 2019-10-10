@@ -108,11 +108,11 @@ namespace Geo {
      *
      */
     namespace Testlib {
-        extern bool __assert_print_to_stderr; ///< Turn on to enable std::cerr output
-        extern bool __assert_print_if_ok;     ///< Print if test is passed, not only fails
-        extern bool __assert_throw_exception; ///< Throw exception if test is failed
-        extern bool __test_print_to_stderr;   ///< Print to std::cerr during testing
-        extern bool __test_throw_exception;   ///< Throw exception during testing if test is failed
+        extern bool __assert_print_to_stderr; ///< Turn on to enable std::cerr output - пишет ошибки каждого ассерта
+        extern bool __assert_print_if_ok;     ///< Print if test is passed, not only fails - будет что-то печатать, даже если хорошо
+        extern bool __assert_throw_exception; ///< Throw exception if test is failed - проходит через отдельный ассерт
+        extern bool __test_print_to_stderr;   ///< Print to std::cerr during testing - пишет ошибки теста
+        extern bool __test_throw_exception;   ///< Throw exception during testing if test is failed -
 
         /*!
          * \brief Assert function for equality check
