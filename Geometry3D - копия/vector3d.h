@@ -153,4 +153,5 @@ double Vector < T >::abs() {
     return sqrt( _x*_x + _y*_y + _z*_z);
 }
 
+
 #endif // VECTOR3D_H
