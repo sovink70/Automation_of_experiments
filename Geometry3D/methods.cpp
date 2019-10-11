@@ -39,7 +39,7 @@ using namespace std;
 //}
 
 template < class T >
-tuple < bool, Vector<T>, T, Plane<T> > Intersection_of_spheres(Sphere<T> sphere1, Sphere<T> sphere2) {
+tuple < bool, Vector<T>, T, Plane<T> > Intersection_of_spheres(Sphere<T>& sphere1, Sphere<T>& sphere2) {
     if ( ( (sphere1.get_Center() - sphere2.get_Center()).abs() < sphere1.get_R() + sphere2.get_R() ) && (sphere1.get_Center() - sphere2.get_Center()).abs() > fabs(sphere1.get_R() - sphere2.get_R()) ) {
         bool Index = true;
         T l = sqrt( ( sphere1.get_Center().get_x()-sphere2.get_Center().get_x() )*( sphere1.get_Center().get_x()-sphere2.get_Center().get_x() ) + ( sphere1.get_Center().get_y()-sphere2.get_Center().get_y() )*( sphere1.get_Center().get_y()-sphere2.get_Center().get_y() ) + ( sphere1.get_Center().get_z()-sphere2.get_Center().get_z() )*( sphere1.get_Center().get_z()-sphere2.get_Center().get_z() ) );
@@ -100,12 +100,12 @@ Vector<T> Projection_of_point(Plane<T>& plane, Vector<T>& point) {
 }
 
 template < class T >
-double Distance_point_plane(Plane<T>& plane, Vector<T>& vector) {
+T Distance_point_plane(Plane<T>& plane, Vector<T>& vector) { //double
     return ( fabs(plane.get_A()*vector.get_x() + plane.get_B()*vector.get_y() + plane.get_C()*vector.get_z() +plane.get_D()) / plane.abs() ); // уточнить на cplusplus.com or cpp reeference, является ли шаблонным - cout << fabs(int(-3)) << endl; работает, так что всё норм //https://ru.onlinemschool.com/math/library/analytic_geometry/p_plane/
 }
 
 template < class T >
-double Distances_point_line(Line<T>& line, Vector<T>& point) {
+T Distances_point_line(Line<T>& line, Vector<T>& point) { //double
     Segment<T> M0M1(point, line.get_Point());
 
     return ( fabs(M0M1.Shift()^line.get_Direction()) / fabs(line.get_Direction()) ); //https://ru.onlinemschool.com/math/library/analytic_geometry/p_line/

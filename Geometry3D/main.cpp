@@ -20,7 +20,15 @@
 using namespace std;
 
 template < class T >
-tuple < bool, Vector<T>, T, Plane<T> > Intersection_of_spheres(Sphere<T> sphere1, Sphere<T> sphere2);
+tuple < bool, Vector<T>, T, Plane<T> > Intersection_of_spheres(Sphere<T>& sphere1, Sphere<T>& sphere2);
+template < class T >
+bool Intersection_of_planes(Plane<T>& plane1, Plane<T>& plane2);
+template < class T >
+Vector<T> Projection_of_point(Plane<T>& plane, Vector<T>& point);
+template < class T >
+T Distance_point_plane(Plane<T>& plane, Vector<T>& vector);
+template < class T >
+T Distances_point_line(Line<T>& line, Vector<T>& point);
 
 void Test_Vector() {
     default_random_engine generator; //https://ru.stackoverflow.com/questions/575156/%D0%9A%D0%B0%D0%BA-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C-%D1%80%D0%B0%D0%BD%D0%B4%D0%BE%D0%BC-%D0%BD%D0%B0-c/575162
@@ -142,11 +150,42 @@ void Test_Intersection_of_spheres() {
        Vector < float > C2(8.0, 0, 0);
        Sphere <float> sp2( C2, 5.0);
        tuple < bool, Vector<float>, float, Plane<float> > TUP = Intersection_of_spheres (sp1, sp2);
-       //ASSERT_MSG( ( (get<0>(TUP) == true) && ( (get<1>(TUP).get_x() - 4.0) <= 1E-9 ) && ( get<1>(TUP).get_y() <= 1E-9 ) && ( get<1>(TUP).get_z() <= 1E-9 ) && (get<2>(TUP) - 3.0 <= 1E-9)     && (get<3>(TUP).get_B() <= 1E-9) && (get<3>(TUP).get_C() <= 1E-9) && (( ((get<3>(TUP).get_A()-1.0 <= 1E-9) && (get<3>(TUP).get_D()+4.0 <= 1E-9)) || ((get<3>(TUP).get_A()+1.0 <= 1E-9) && (get<3>(TUP).get_D()-4.0 <= 1E-9)) )) ), "Sphere equals to itself");
+       ASSERT_MSG( ( (get<0>(TUP) == true) && ( (get<1>(TUP).get_x() - 4.0) <= 1E-9 ) && ( get<1>(TUP).get_y() <= 1E-9 ) && ( get<1>(TUP).get_z() <= 1E-9 ) && (get<2>(TUP) - 3.0 <= 1E-9)     && (get<3>(TUP).get_B() <= 1E-9) && (get<3>(TUP).get_C() <= 1E-9) && (( ((get<3>(TUP).get_A()-1.0 <= 1E-9) && (get<3>(TUP).get_D()+4.0 <= 1E-9)) || ((get<3>(TUP).get_A()+1.0 <= 1E-9) && (get<3>(TUP).get_D()-4.0 <= 1E-9)) )) ), "Intersections of Spheres works");
     }
 }
 
+void Test_Intersection_of_planes() {
+    {
+        Plane<int> pl1 (0, 0, 1, 0);
+        Plane<int> pl2 (0, 0, 9, 0);
+        Plane<int> pl3 (1, 0, 0, 0);
+        ASSERT_MSG( ( Intersection_of_planes(pl1,pl2) == false ) && ( Intersection_of_planes(pl1,pl2) == true ) , "Intersection_of_planes works");
+    }
+}
 
+void Test_Projection_of_point() {
+    {
+    Plane<int> pl (0, 0, 1, 0);
+    Vector<int> p (1, 2, 3);
+    //Vector<int> pr (0, 0, 3);
+    Vector<int> pr = Projection_of_point(pl,p);
+    ASSERT_MSG( ( (pr.get_x() == 0) && (pr.get_y() == 0) && (pr.get_y() == 3) ), "Projection_of_point works");
+    }
+}
+
+void Test_Distance_point_plane() {
+    Plane<int> pl (0, 0, 1, 0);
+    Vector<int> p (0, 0, 3);
+    ASSERT_MSG( ( Distance_point_plane(pl,p) == 3 ), "Distance_point_plane works");
+}
+
+void Test_Distances_point_line() {
+    Vector<int> p0 (0, 0, 0);
+    Vector<int> v (1, 1, 0);
+    Line<int> l (p0, v);
+    Vector<int> p (0, 0, 3);
+    ASSERT_MSG( ( Distances_point_line(l,p) == 3 ), "Distance_point_plane works");
+}
 
 void TestAll() {
     Geo::Testlib::Test test;
@@ -156,6 +195,10 @@ void TestAll() {
     RUN_TEST_MSG(test, Test_Plane, "Plane check");
     RUN_TEST_MSG(test, Test_Sphere, "Sphere check");
     RUN_TEST_MSG(test, Test_Intersection_of_spheres, "Intersection_of_spheres check");
+    RUN_TEST_MSG(test, Test_Intersection_of_planes, "Intersection_of_planes check");
+    RUN_TEST_MSG(test, Test_Projection_of_point, "Projection_of_point check");
+    RUN_TEST_MSG(test, Test_Distance_point_plane, "Distance_point_plane check");
+    RUN_TEST_MSG(test, Test_Distances_point_line, "Distances_point_line check");
 }
 
 int main() {
