@@ -39,7 +39,7 @@ public:
 template < class T >
 bool operator== (Vector<T>& obj1, Vector<T>& obj2)
 {
-    if ( (obj1.get_x() == obj2.get_x()) && (obj1.get_y() == obj2.get_y()) && (obj1.get_z() == obj2.get_z()) )
+    if ( ((obj1.get_x() - obj2.get_x()) < 1E-9) && (obj1.get_y() - obj2.get_y() < 1E-9) && (obj1.get_z() - obj2.get_z() <1E-9) )
         return true;
     else return false;
 }
@@ -49,7 +49,6 @@ Vector < T > ::Vector() {
     _x=0;
     _y=0;
     _z=0;
-    std::cerr << "Default constructor\n";
 }
 
 template < class T >

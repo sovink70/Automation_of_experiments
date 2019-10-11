@@ -16,6 +16,12 @@ public:
         _C = C;
         _D = D;
     }
+    Plane() {
+        _A = 0;
+        _B = 0;
+        _C = 0;
+        _D = 0;
+    }
 
     T get_A() const;
     T get_B() const;

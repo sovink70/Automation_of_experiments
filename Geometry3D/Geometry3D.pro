@@ -4,9 +4,10 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+CONFIG += warn_on
+
 SOURCES += \
     main.cpp \
-    methods.cpp \
     Testlib.cpp
 
 HEADERS += \
@@ -15,4 +16,6 @@ HEADERS += \
     vector3d.h \
     sphere3d.h \
     plane3d.h \
-    Testlib.h
+    Testlib.h \
+    algorithms.h \
+    tests.h
