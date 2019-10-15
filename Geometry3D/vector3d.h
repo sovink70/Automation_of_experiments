@@ -27,12 +27,14 @@ public:
     friend ostream& operator<< (ostream&, const Vector < V > &); // теперь выводить в консоль можно без геттеров, потому что мы подружили оператор с классом Vector
 
     Vector <T> operator+(const Vector<T>&) const;// на запись а=а+б будет ругаться, мы же не можем менять а, внутри скобок рядом с поинт можно не писать переменную
+    Vector <T> &operator +=(const Vector<T>& b);
     Vector <T> operator-(const Vector<T>&) const;
+    Vector <T> &operator -=(const Vector<T>&);
     Vector <T> operator*(const T &h) const;// а можно и написать переменную - не важно пока что
     double operator*(const Vector<T>&) const; // СКАЛЯРНОЕ
     Vector <T> operator^(const Vector<T>&) const; //векторное
 
-    double abs();
+    T abs();
 };
 
 // Перегружаем логический оператор == вне класса //public static //https://professorweb.ru/my/csharp/charp_theory/level6/6_5.php //https://ru.stackoverflow.com/questions/491054/%D0%9F%D0%B5%D1%80%D0%B5%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B0
@@ -114,13 +116,24 @@ return c;
 }
 
 template < class T >
+Vector<T>& Vector<T>::operator+=(const Vector<T>& b) {
+   this = this + b;
+   return this;
+}
+
+template < class T >
 Vector<T> Vector<T>::operator-(const Vector<T> &b) const{
 Vector c(0.0, 0.0, 0.0);
 c._x = this->_x - b._x;
 c._y = this->_y - b._y;
 c._z = this->_z - b._z;
-
 return c;
+}
+
+template < class T >
+Vector<T>& Vector<T>::operator-=(const Vector<T>& b) {
+   this = this - b;
+   return this;
 }
 
 template < class T >
@@ -148,9 +161,18 @@ Vector<T> Vector<T>::operator ^(const Vector<T> &b) const{
 }
 
 template < class T >
-double Vector < T >::abs() {
+T Vector<T>::abs() {
     return sqrt( _x*_x + _y*_y + _z*_z);
 }
 
+/*int main(){
+    double x,y;
+    cout<<"Input coordinates:"<<endl;
+    cin>>x>>y;
+    Point a=Point(x,y);
+    cout<<"Your point is: "<<a<<endl;
+    return 0;
+}
+*/
 
 #endif // VECTOR3D_H

@@ -6,6 +6,10 @@ CONFIG -= qt
 
 CONFIG += warn_on
 
+QMAKE_CXXFLAGS_RELEASE += -O2
+QMAKE_CXXFLAGS += -Wall -Wextra -Wfloat-equal -Wundef -Wwrite-strings -Wlogical-op -Wmissing-declarations -Wshadow -Wdiv-by-zero
+QMAKE_CXXFLAGS += -isystem $$[QT_INSTALL_HEADERS]
+
 SOURCES += \
     main.cpp \
     Testlib.cpp

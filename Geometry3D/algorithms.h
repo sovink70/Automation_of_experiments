@@ -24,17 +24,26 @@ T Distances_point_line(Line<T>& line, Vector<T>& point);
 
 template < class T >
 tuple < bool, Vector<T>, T, Plane<T> > Intersection_of_spheres(Sphere<T>& sphere1, Sphere<T>& sphere2) {
-    if ( ( (sphere1.get_Center() - sphere2.get_Center()).abs() < sphere1.get_R() + sphere2.get_R() ) && (sphere1.get_Center() - sphere2.get_Center()).abs() > fabs(sphere1.get_R() - sphere2.get_R()) ) {
+    if ( (  (sphere1.get_Center() - sphere2.get_Center()).abs() - sphere1.get_R() - sphere2.get_R()  < 1E-9 ) || ( (sphere1.get_Center() - sphere2.get_Center()).abs() - fabs(sphere1.get_R() - sphere2.get_R()) < 1E-9 ) ) {
+        bool Index = true;
+        Vector<T> normal = (sphere1.get_Center() - sphere2.get_Center()) * (1.0/(  ( sphere1.get_Center() - sphere2.get_Center()).abs()  ));
+        Vector<T> circle_Center = sphere2.get_Center() + normal*( (sphere2.get_R()) ); // /( (sphere1.get_Center() - sphere2.get_Center()).abs() ));
+        T D = -normal.get_x()*circle_Center.get_x() -normal.get_y()*circle_Center.get_y() -normal.get_z()*circle_Center.get_z();
+        Plane<T> circle_Plane (normal.get_x(), normal.get_y(), normal.get_z(), D);
+        return make_tuple(Index, circle_Center, 0, circle_Plane);
+    }
+    else if ( ( (sphere1.get_Center() - sphere2.get_Center()).abs() < sphere1.get_R() + sphere2.get_R() ) && (sphere1.get_Center() - sphere2.get_Center()).abs() > fabs(sphere1.get_R() - sphere2.get_R()) ) {
         bool Index = true;
         T l = sqrt( ( sphere1.get_Center().get_x()-sphere2.get_Center().get_x() )*( sphere1.get_Center().get_x()-sphere2.get_Center().get_x() ) + ( sphere1.get_Center().get_y()-sphere2.get_Center().get_y() )*( sphere1.get_Center().get_y()-sphere2.get_Center().get_y() ) + ( sphere1.get_Center().get_z()-sphere2.get_Center().get_z() )*( sphere1.get_Center().get_z()-sphere2.get_Center().get_z() ) );
         T p = 0.5*(sphere1.get_R() + sphere2.get_R() + l); // для расчёта площади по формула Герона
         T R = 2/l*sqrt( p*(p-sphere1.get_R())*(p-sphere2.get_R())*(p-l) );
-        Vector<T> normal = (sphere1.get_Center() - sphere2.get_Center()); // /((sphere1.get_Center() - sphere2.get_Center()).abs()); // вектор нормали НЕ единичный
-        Vector<T> circle_Center = sphere1.get_Center() + normal*(sqrt(sphere1.get_R()*sphere1.get_R()-R*R)/( sphere1.get_Center() - sphere2.get_Center()).abs() );
+        Vector<T> normal = (sphere1.get_Center() - sphere2.get_Center()) * (1.0/(  ( sphere1.get_Center() - sphere2.get_Center()).abs()  )); // /((sphere1.get_Center() - sphere2.get_Center()).abs()); // вектор нормали СНОВА единичный
+        Vector<T> circle_Center = sphere2.get_Center() + normal*(sqrt(sphere2.get_R()*sphere2.get_R()-R*R) ); // /( sphere1.get_Center() - sphere2.get_Center()).abs() );
         T D = -normal.get_x()*circle_Center.get_x() -normal.get_y()*circle_Center.get_y() -normal.get_z()*circle_Center.get_z();
         Plane<T> circle_Plane (normal.get_x(), normal.get_y(), normal.get_z(), D);
         return make_tuple(Index, circle_Center, R, circle_Plane);
     }
+
     else {
         bool Index = false;
         Vector<T> circle_Center;

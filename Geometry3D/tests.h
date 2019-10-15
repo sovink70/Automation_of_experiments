@@ -137,9 +137,24 @@ void Test_Intersection_of_spheres() {
        Vector < float > C1(0, 0, 0);
        Sphere <float> sp1( C1, 5.0);
        Vector < float > C2(8.0, 0, 0);
-       Sphere <float> sp2( C2, 5.0);
-       tuple < bool, Vector<float>, float, Plane<float> > TUP = Intersection_of_spheres (sp1, sp2);
+       Sphere <float> sp2( C2, 5.0); // пересекаются
+       Vector < float > C3(0, 10, 0);
+       Sphere <float> sp3( C3, 1.0); // не пересекаются
+       Vector < float > C4(0, 0, 7.0);
+       Sphere <float> sp4( C4, 2.0); // касаются
+       tuple < bool, Vector<float>, float, Plane<float> > TUP = Intersection_of_spheres (sp1, sp2); // пересекаются
+       tuple < bool, Vector<float>, float, Plane<float> > TUP2 = Intersection_of_spheres (sp1, sp3);// не пересекаются
+       tuple < bool, Vector<float>, float, Plane<float> > TUP3 = Intersection_of_spheres (sp1, sp4);// касаются
+//       std::cout << "ID: 0, "
+//                 << "bool: " << std::get<0>(TUP3) << ", "
+//                 << "Center: " << std::get<1>(TUP3) << ", "
+//                 << "R: " << std::get<2>(TUP3) << ", "
+//                    << "Plane: " << std::get<3>(TUP3) << '\n';
+       //cout << (sp1.get_Center() - sp4.get_Center()).abs() - sp1.get_R() - sp4.get_R() << endl;
+       //cout << (sp1.get_Center() - sp4.get_Center()).abs() - fabs(sp1.get_R() - sp4.get_R()) << endl;
        ASSERT_MSG( ( (get<0>(TUP) == true) && ( (get<1>(TUP).get_x() - 4.0) <= 1E-9 ) && ( get<1>(TUP).get_y() <= 1E-9 ) && ( get<1>(TUP).get_z() <= 1E-9 ) && (get<2>(TUP) - 3.0 <= 1E-9)     && (get<3>(TUP).get_B() <= 1E-9) && (get<3>(TUP).get_C() <= 1E-9) && (( ((get<3>(TUP).get_A()-1.0 <= 1E-9) && (get<3>(TUP).get_D()+4.0 <= 1E-9)) || ((get<3>(TUP).get_A()+1.0 <= 1E-9) && (get<3>(TUP).get_D()-4.0 <= 1E-9)) )) ), "Intersections of Spheres works");
+       ASSERT_MSG( (get<0>(TUP2) == false) , "NO Intersections of Spheres works");
+       ASSERT_MSG( ( (get<0>(TUP3) == true) && ( (get<1>(TUP3).get_x() - 0) <= 1E-9 ) && ( get<1>(TUP3).get_y() <= 1E-9 ) && ( get<1>(TUP3).get_z() - 5.0<= 1E-9 ) && (get<2>(TUP3) - 0 <= 1E-9)     && (get<3>(TUP3).get_B() <= 1E-9) && (get<3>(TUP3).get_A() <= 1E-9) && (( ((get<3>(TUP3).get_C()-1.0 <= 1E-9) && (get<3>(TUP3).get_D()+5.0 <= 1E-9)) || ((get<3>(TUP3).get_C()+1.0 <= 1E-9) && (get<3>(TUP3).get_D()-5.0 <= 1E-9)) )) ), "ALMOST Intersections of Spheres works");
     }
 }
 
@@ -158,7 +173,7 @@ void Test_Projection_of_point() {
     Vector<float> p (1, 2, 3);
     //Vector<int> pr (0, 0, 3);
     Vector<float> pr = Projection_of_point(pl,p);
-    cout << pr << endl;
+    //cout << pr << endl;
     ASSERT_MSG( ( (pr.get_x() - 1< 1E-9) && (pr.get_y() - 2 < 1E-9) && (pr.get_z() - 0 < 1E-9) ), "Projection_of_point works");
     }
 }
@@ -170,10 +185,10 @@ void Test_Distance_point_plane() {
 }
 
 void Test_Distances_point_line() {
-    Vector<int> p0 (0, 0, 0);
-    Vector<int> v (1, 1, 0);
-    Line<int> l (p0, v);
-    Vector<int> p (0, 0, 3);
+    Vector<float> p0 (0, 0, 0);
+    Vector<float> v (1.0, 1.0, 0);
+    Line<float> l (p0, v);
+    Vector<float> p (0, 0, 3);
     ASSERT_MSG( ( (Distances_point_line(l,p) - 3) < 1E-9 ), "Distance_point_plane works");
 }
 
