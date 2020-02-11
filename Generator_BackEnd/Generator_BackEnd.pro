@@ -27,6 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++1z
 
 SOURCES += \
+    Generator.cpp \
         main.cpp \
         mainwindow.cpp \
     DS335.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
     DS345.cpp
 
 HEADERS += \
+    Generator.h \
         mainwindow.h \
     DS335.h \
     QtSTLConvertion.h \

@@ -7,14 +7,13 @@
 //#include <QSerialPortInfo>
 //#include <QDebug>
 
-
 #include "SRSgenerator.h"
 
 class DS345 : public SRSGenerator
 {
 //    Q_OBJECT
 
-private:
+private: //∂ или protected?
     const double maxAmplitudeSineVpp   = 10;
     const double minAmplitudeSineVpp   = 0.01;
     const double stepAmplitudeSineVpp  = 0.01;
@@ -138,95 +137,28 @@ private:
     const double  stepModulationRate = 1;
     const int decimalsModulationRate = 3;
 
-    SRS* srs;
-    QSerialPort* serial;
-
-    // заменил весь list на vector потому что это удобнее
-    std::vector<std::string> baudrateList;
-    std::vector<std::string> amplitudeTypeList;
-    std::vector<std::string> functionList;
-    std::vector<std::string> modulationFunctionList;
-    std::vector<std::string> modulationTypeList;
 
 public:
     explicit DS345();
 
-    //∂ЧТО ЗА ШТУКА И ГДЕ ИСПОЛЬЗУЕТСЯ?? Qt убрать
+    //ЧТО ЗА ШТУКА И ГДЕ ИСПОЛЬЗУЕТСЯ??- не исползуется, обойдёмся
     explicit DS345(const QString &portName, const int &baudrate, const int &stopBit = 1, const int &parity = 0);
-    //∂ весь Qt убрать
     ~DS345();
 
-
-    void initBaudrateList();
-    std::vector<string> getBaudrateList() const;
-    bool isValidBaudrate(const int &baudrate) const;
-    bool changeBaudrate(const int &baudrate);
-
-    void setWriteTimeout(const int &new_writeTimeout);
-    int getWriteTimeout() const;
-
-    void setReadTimeout(const int &new_readTimeout);
-    int getReadTimeout() const;
-
-    void setReadWaitTimeout(const int &new_readWaitTimeout);
-    int getReadWaitTimeout() const;
-
-
-//    //∂ нужные 4 ф-ции- целиком ссылаются на SRS НАДО убрать Qstring - СКАТАТЬ У ЛЁШИ-ВИТИ
-//    // string.toDouble()
-//    int numberFromString(const QStringList &list, const QString &string) const;
-//    // to_string ==
-//    QString stringFromNumber(const QStringList &list, const int &number) const;
-//    bool isValidString(const std:: list< std:: string> &list, const std::string &string) const;
-//    bool isValidNumber(const std:: list< std:: string> &list, const int &number) const;
-//    //
-    //СКАТАНО:
-    int numberFromString(const std::vector< std::string> &vector, const std::string &string) const;
-       std::string stringFromNumber(const std::vector< std::string> &vector, const int &number) const;
-       bool isValidString(const std::vector< std::string> &vector, const std::string &string) const;
-       bool isValidNumber(const std::vector< std::string> &vector, const int &number) const;
-    //
-
-    //bool test() const;
-
-    // кажется тут QString>>string не обязательно? - ОБЯЗАТЕЛЬНО
     void initAmplitudeTypeList();
-    std:: vector< std:: string> getAmplitudeTypeList() const;
-    double getMinAmplitude(const std::string &waveform, const string &unit) const;
-    double getMaxAmplitude(const std::string &waveform, const string &unit) const;
-    double getStepAmplitude(const std::string &waveform, const string &unit) const;
-    double getDecimalsAmplitude(const std::string &waveform, const string &unit) const;
-    bool isValidAmplitude(const double &amplitude, const string &waveform, const string &unit) const;
-    bool isValidAmplitudeType(const std::string &unit) const;
-    bool setAmplitude(const double &amplitude, const string &unit) const;
-    std::string  getAmplitude(const std::string &unit) const;
-
-    double getMinOffset() const;
-    double getMaxOffset() const;
-    double getStepOffset() const;
-    double getDecimalsOffset() const;
-    bool isValidOffset(const double &offset) const;
-    bool setOffset(const double &offset) const;
-    std::string getOffset() const;
+    double getMinAmplitude(const std::string &waveform, const std::string &unit) const;
+    double getMaxAmplitude(const std::string &waveform, const std::string &unit) const;
+    double getStepAmplitude(const std::string &waveform, const std::string &unit) const;
+    double getDecimalsAmplitude(const std::string &waveform, const std::string &unit) const;
+    bool isValidAmplitude(const double &amplitude, const std::string &waveform, const std::string &unit) const;
 
     double getMinFrequency(const std::string &waveform) const;
     double getMaxFrequency(const std::string &waveform) const;
     double getStepFrequency(const std::string &waveform) const;
     double getDecimalsFrequency(const std::string &waveform) const;
     bool isValidFrequency(const double &frequency, const std::string &waveform) const;
-    bool setFrequency(const double &frequency) const;
-    std::string getFrequency() const;
 
     void initFunctionList();
-    std::vector<std::string> getFunctionList() const;
-    int functionNumberFromString(const std::string &function_string) const;
-    std::string functionStringFromNumber(const int &function_number) const;
-    bool setFunction(const int &function) const;
-    bool setFunction(const std::string &function) const;
-    std::string getFunction() const;
-
-    bool setInverse(const bool &inverse) const;
-    std::string getInverse() const;
 
     int getMinAMDepth() const;
     int getMaxAMDepth() const;
@@ -275,18 +207,6 @@ public:
     bool setModulationSpan(const double &span) const;
     std::string getModulationSpan() const;
 
-public slots:
-    void catchErrorSignal(const std::string &s) const;
-    void catchResponseSignal(const std::string &s) const;
-    void catchCommandSignal(const std::string &s) const;
-    void catchTimeoutSignal(const std::string &s) const;
-
-//∂каким-то Боком я должен это перенести из Qt в абстракт, хотя это чисто китайская штук
-signals:
-    void errorSignal(const QString &s) const;
-    void responseSignal(const QString &s) const;
-    void commandSignal(const QString &s) const;
-    void timeoutSignal(const QString &s) const;
 };
 
 #endif // DS345_H

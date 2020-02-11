@@ -12,7 +12,7 @@
 #include <list>
 
 //∂ Страховочный трос:
-using namespace std;
+//using namespace std;
 
 class SRS : public SerialPortCommunication {
 public:
@@ -56,6 +56,8 @@ protected:
 
     inline static const std::string IDN = "*IDN";
 
+    // этот костыль потом сломается - ∂свинья #1. Если присмотреться к connect - он уже принимает строку
+    // свинья #2 - надо делать DOXIGEN
     std::unordered_map < std::string , QSerialPort::DataBits    > SRS_string_to_data_bits    = {
                                                                                                 {"8", QSerialPort::Data8}
                                                                                                };
@@ -72,6 +74,7 @@ protected:
                                                                                                 {  "1",  QSerialPort::OneStop       },
                                                                                                 {  "2",  QSerialPort::TwoStop       }
                                                                                                };
+    //
 };
 
 #endif // SRS_H

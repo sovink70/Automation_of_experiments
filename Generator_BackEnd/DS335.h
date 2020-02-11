@@ -1,102 +1,19 @@
 #ifndef DS335_H
 #define DS335_H
 
-#include "SRS.h"
+//#include <QObject>
+//#include <QTime>
+//#include <QSerialPort>
+//#include <QSerialPortInfo>
+//#include <QDebug>
 
-class DS335 : public SRS
+#include "SRSgenerator.h"
+
+class DS335 : public SRSGenerator
 {
-public:
-    explicit DS335();
-    explicit DS335(const QString &portName, const int &baudrate, const int &stopBit = 1, const int &parity = 0);
-    ~DS335();
+//    Q_OBJECT
 
-    void init();
-
-    void setSerial(QSerialPort* new_serial);
-    QSerialPort* getSerial() const;
-
-    bool setConnection(const QString &portName, const int &baudrate, const int &stopBit = 1, const int &parity = 0);
-    void disconnect() const;
-
-    void initBaudrateList();
-    QStringList getBaudrateList() const;
-    bool isValidBaudrate(const int &baudrate) const;
-    bool changeBaudrate(const int &baudrate);
-
-    void setWriteTimeout(const int &new_writeTimeout);
-    int getWriteTimeout() const;
-
-    void setReadTimeout(const int &new_readTimeout);
-    int getReadTimeout() const;
-
-    void setReadWaitTimeout(const int &new_readWaitTimeout);
-    int getReadWaitTimeout() const;
-
-    void setAttemptsToConnect(const int &new_attemptsToConnect);
-    int getAttemptsToConnect() const;
-
-    bool isActive() const;
-
-    bool send(const QString &command, QString &response, const bool &wait_for_response) const;
-    bool sendCommand(const QString &command) const;
-    bool sendQuery(const QString &command, QString &response) const;
-    QString ask(const QString &command) const;
-
-    bool getIDN(QString &idn) const;
-
-    int numberFromString(const QStringList &list, const QString &string) const;
-    QString stringFromNumber(const QStringList &list, const int &number) const;
-    bool isValidString(const QStringList &list, const QString &string) const;
-    bool isValidNumber(const QStringList &list, const int &number) const;
-
-    void initAmplitudeTypeList();
-    QStringList getAmplitudeTypeList() const;
-    double getMinAmplitude(const QString &waveform, const QString &outputZ, const bool &VRMS) const;
-    double getMaxAmplitude(const QString &waveform, const QString &outputZ, const bool &VRMS) const;
-    double getStepAmplitude(const QString &waveform, const QString &outputZ, const bool &VRMS) const;
-    double getDecimalsAmplitude(const QString &waveform, const QString &outputZ, const bool &VRMS) const;
-    bool isValidAmplitude(const double &amplitude, const QString &waveform, const QString &outputZ, const bool &VRMS) const;
-    bool setAmplitude(const double &amplitude, const bool &VRMS) const;
-    double getAmplitude(const bool &VRMS) const;
-
-    double getMinOffset() const;
-    double getMaxOffset() const;
-    double getStepOffset() const;
-    double getDecimalsOffset() const;
-    bool isValidOffset(const double &offset) const;
-    bool setOffset(const double &offset) const;
-    double getOffset() const;
-
-    double getMinFrequency(const QString &waveform) const;
-    double getMaxFrequency(const QString &waveform) const;
-    double getStepFrequency(const QString &waveform) const;
-    double getDecimalsFrequency(const QString &waveform) const;
-    bool isValidFrequency(const double &frequency, const QString &waveform) const;
-    bool setFrequency(const double &frequency) const;
-    double getFrequency() const;
-
-    void initFunctionList();
-    QStringList getFunctionList() const;
-    int functionNumberFromString(const QString &function_string) const;
-    QString functionStringFromNumber(const int &function_number) const;
-    bool setFunction(const int &function) const;
-    bool setFunction(const QString &function) const;
-    QString getFunction() const;
-
-    bool setInverse(const bool &inverse) const;
-    bool getInverse() const;
-
-    bool setSynchronization(const bool &synchronization) const;
-    bool getSynchronization() const;
-
-    void initOutputImpedanceList();
-    QStringList getOutputImpedanceList() const;
-    int outputImpedanceNumberFromString(const QString &outputImpedance_string) const;
-    QString outputImpedanceStringFromNumber(const int &outputImpedance_number) const;
-    bool setOutputImpedance(const int &outputImpedance) const;
-    bool setOutputImpedance(const QString &outputImpedance) const;
-    QString getOutputImpedance() const;
-protected:
+private: //∂ или protected?
     const double maxAmplitude50OhmsSineVpp   = 10;
     const double minAmplitude50OhmsSineVpp   = 0.05;
     const double stepAmplitude50OhmsSineVpp  = 0.01;
@@ -227,25 +144,42 @@ protected:
     const double  stepFrequencyNoise = 0;
     const int decimalsFrequencyNoise = 0;
 
-    SRS* srs;
-    QSerialPort* serial;
 
-    QStringList baudrateList;
-    QStringList amplitudeTypeList;
-    QStringList functionList;
-    QStringList outputImpedanceList;
+public:
+    explicit DS335();
+    ~DS335();
 
-public slots:
-    void catchErrorSignal(const QString &s) const;
-    void catchResponseSignal(const QString &s) const;
-    void catchCommandSignal(const QString &s) const;
-    void catchTimeoutSignal(const QString &s) const;
+    //∂ это вообще что, нужно ли оно и почему его нет в ds 345? удалил пока
+    void setAttemptsToConnect(const int &new_attemptsToConnect);
+    int getAttemptsToConnect() const;
+    //
 
-signals:
-    void errorSignal(const QString &s) const;
-    void responseSignal(const QString &s) const;
-    void commandSignal(const QString &s) const;
-    void timeoutSignal(const QString &s) const;
+    void initAmplitudeTypeList();
+    double getMinAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const;
+    double getMaxAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const;
+    double getStepAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const;
+    double getDecimalsAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const;
+    bool isValidAmplitude(const double &amplitude, const std::string &waveform, const std::string &outputZ, const std::string &unit) const;
+
+    double getMinFrequency(const std::string &waveform) const;
+    double getMaxFrequency(const std::string &waveform) const;
+    double getStepFrequency(const std::string &waveform) const;
+    double getDecimalsFrequency(const std::string &waveform) const;
+    bool isValidFrequency(const double &frequency, const std::string &waveform) const;
+
+    void initFunctionList();
+
+    bool setSynchronization(const bool &synchronization) const;
+    bool getSynchronization() const;
+
+    void initOutputImpedanceList();
+    std::vector<std::string> getOutputImpedanceList() const;
+    int outputImpedanceNumberFromString(const std::string &outputImpedance_string) const;
+    std::string outputImpedanceStringFromNumber(const int &outputImpedance_number) const;
+    bool setOutputImpedance(const int &outputImpedance) const;
+    bool setOutputImpedance(const std::string &outputImpedance) const;
+    std::string getOutputImpedance() const;
+
 };
 
 #endif // DS335_H
