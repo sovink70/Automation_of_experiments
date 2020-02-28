@@ -44,7 +44,7 @@ public:
     std::vector<std::string> getAmplitudeTypeList() const;
     bool isValidAmplitudeType(const std::string &unit) const;
     bool setAmplitude(const double &amplitude, const std::string &unit) const; //bool &VRMS
-    std::string getAmplitude(const std::string &unit) const; //double
+    double getAmplitude(const std::string &unit) const;
 
     double getMinOffset() const;
     double getMaxOffset() const;
@@ -52,10 +52,10 @@ public:
     double getDecimalsOffset() const;
     bool isValidOffset(const double &offset) const;
     bool setOffset(const double &offset) const;
-    std::string getOffset() const; //double
+    double getOffset() const;
 
     bool setFrequency(const double &frequency) const;
-    std::string getFrequency() const;
+    double getFrequency() const;
 
     std::vector<std::string> getFunctionList() const;
     int functionNumberFromString(const std::string &function_string) const;
@@ -65,7 +65,7 @@ public:
     std::string getFunction() const;
 
     bool setInverse(const bool &inverse) const;
-    std::string getInverse() const; //    bool getInverse() const;
+    bool getInverse() const; //    bool getInverse() const;
 
 };
 

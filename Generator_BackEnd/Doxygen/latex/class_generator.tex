@@ -1,0 +1,614 @@
+\hypertarget{class_generator}{}\doxysection{Generator Class Reference}
+\label{class_generator}\index{Generator@{Generator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}\label{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}} 
+\mbox{\hyperlink{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}{Generator}} ()
+\begin{DoxyCompactList}\small\item\em Стандартный конструктор, просто вызывает \mbox{\hyperlink{class_generator_ab810d0f9491684544ceec3578374eb8f}{to\+N\+U\+L\+L()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a17d056886ec36237cfc84548c1e61943}\label{class_generator_a17d056886ec36237cfc84548c1e61943}} 
+\mbox{\hyperlink{class_generator_a17d056886ec36237cfc84548c1e61943}{Generator}} (const std\+::string \&new\+\_\+generator\+Model)
+\begin{DoxyCompactList}\small\item\em конструктор, принимает только модель генератора и устанавливает её в переменную this-\/$>$generator\+Model. Перед этим также вызывает \mbox{\hyperlink{class_generator_ab810d0f9491684544ceec3578374eb8f}{to\+N\+U\+L\+L()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a16c0214ac90e07f21943dc7049c56cbf}\label{class_generator_a16c0214ac90e07f21943dc7049c56cbf}} 
+\mbox{\hyperlink{class_generator_a16c0214ac90e07f21943dc7049c56cbf}{Generator}} (const std\+::string \&port\+Name, const std\+::string \&baudrate, const std\+::string \&data\+Bit, const std\+::string \&stop\+Bit, const std\+::string \&parity, const std\+::string \&flowcontrol, const std\+::string \&new\+\_\+generator\+Model=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em конструктор, принимает port\+Name, baudrate, data\+Bit, stop\+Bit, parity, flowcontrol, new\+\_\+generator\+Model И уже вызывает S\+E\+Tconnect с этими параметрами. Перед этим также вызывает \mbox{\hyperlink{class_generator_ab810d0f9491684544ceec3578374eb8f}{to\+N\+U\+L\+L()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ac602fc57b79ed02e3ea24cb82f030f56}\label{class_generator_ac602fc57b79ed02e3ea24cb82f030f56}} 
+{\bfseries Generator} (\mbox{\hyperlink{class_d_s335}{D\+S335}} $\ast$new\+\_\+ds335)
+\item 
+\mbox{\Hypertarget{class_generator_acfc505c01831c9b7af4d73a2532c821a}\label{class_generator_acfc505c01831c9b7af4d73a2532c821a}} 
+{\bfseries Generator} (\mbox{\hyperlink{class_d_s345}{D\+S345}} $\ast$new\+\_\+ds345)
+\item 
+\mbox{\Hypertarget{class_generator_acc85fbe22690003267ba899bacf777d1}\label{class_generator_acc85fbe22690003267ba899bacf777d1}} 
+\mbox{\hyperlink{class_generator_acc85fbe22690003267ba899bacf777d1}{$\sim$\+Generator}} ()
+\begin{DoxyCompactList}\small\item\em деструктор \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ab810d0f9491684544ceec3578374eb8f}\label{class_generator_ab810d0f9491684544ceec3578374eb8f}} 
+void \mbox{\hyperlink{class_generator_ab810d0f9491684544ceec3578374eb8f}{to\+N\+U\+LL}} ()
+\begin{DoxyCompactList}\small\item\em устанавливает указатели обоих объектов (\mbox{\hyperlink{class_d_s335}{D\+S335}} и \mbox{\hyperlink{class_d_s345}{D\+S345}}) на nullptr и запускает ф-\/цию \mbox{\hyperlink{class_generator_a505e05662a8c22273d20b4e1b3b8d8ca}{init()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a505e05662a8c22273d20b4e1b3b8d8ca}\label{class_generator_a505e05662a8c22273d20b4e1b3b8d8ca}} 
+void \mbox{\hyperlink{class_generator_a505e05662a8c22273d20b4e1b3b8d8ca}{init}} ()
+\begin{DoxyCompactList}\small\item\em если указатель \mbox{\hyperlink{class_s_r_s}{S\+RS}} установлен на nullptr (то есть по сути не создан Serial\+Port), то создает new \mbox{\hyperlink{class_s_r_s}{S\+R\+S()}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a0e0921620ced1397830ec03e25687a6d}\label{class_generator_a0e0921620ced1397830ec03e25687a6d}} 
+\mbox{\hyperlink{struct_generator___state}{Generator\+\_\+\+State}} \mbox{\hyperlink{class_generator_a0e0921620ced1397830ec03e25687a6d}{get\+State}} ()
+\begin{DoxyCompactList}\small\item\em определяет текущее состояние генератора, возвращает структуру struct \mbox{\hyperlink{struct_generator___state}{Generator\+\_\+\+State}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a025d9f6f02e9cbc3ff7e24381a3333ee}\label{class_generator_a025d9f6f02e9cbc3ff7e24381a3333ee}} 
+bool \mbox{\hyperlink{class_generator_a025d9f6f02e9cbc3ff7e24381a3333ee}{set\+State}} (const \mbox{\hyperlink{struct_generator___state}{Generator\+\_\+\+State}} \&state)
+\begin{DoxyCompactList}\small\item\em выставляет состояние генератора, принимает в переменных только структуру struct \mbox{\hyperlink{struct_generator___state}{Generator\+\_\+\+State}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a57083391b0ff135cdef2bf976f738bd9}\label{class_generator_a57083391b0ff135cdef2bf976f738bd9}} 
+void {\bfseries wait} (const double \&x=1) const
+\item 
+\mbox{\Hypertarget{class_generator_ada9df94f93767972937230d59e88bb38}\label{class_generator_ada9df94f93767972937230d59e88bb38}} 
+void {\bfseries set\+D\+S335} (\mbox{\hyperlink{class_d_s335}{D\+S335}} $\ast$new\+\_\+ds335)
+\item 
+\mbox{\Hypertarget{class_generator_afff8483f69125ef6df1f4f536748112f}\label{class_generator_afff8483f69125ef6df1f4f536748112f}} 
+\mbox{\hyperlink{class_d_s335}{D\+S335}} $\ast$ {\bfseries get\+D\+S335} () const
+\item 
+\mbox{\Hypertarget{class_generator_a8b939486cfc67ad886228a477c3c0ad1}\label{class_generator_a8b939486cfc67ad886228a477c3c0ad1}} 
+void {\bfseries set\+D\+S345} (\mbox{\hyperlink{class_d_s345}{D\+S345}} $\ast$new\+\_\+ds345)
+\item 
+\mbox{\Hypertarget{class_generator_ac497d4902eda585d8d1e1d4c05cbcac0}\label{class_generator_ac497d4902eda585d8d1e1d4c05cbcac0}} 
+\mbox{\hyperlink{class_d_s345}{D\+S345}} $\ast$ {\bfseries get\+D\+S345} () const
+\item 
+\mbox{\Hypertarget{class_generator_a8d041e17caaf1137f344111a6285b4c0}\label{class_generator_a8d041e17caaf1137f344111a6285b4c0}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_a8d041e17caaf1137f344111a6285b4c0}{get\+Supported\+Models}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор стрингов возможных моделей \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a7a4f60e36cf3f1bd7311d3880a9ab8ab}\label{class_generator_a7a4f60e36cf3f1bd7311d3880a9ab8ab}} 
+void \mbox{\hyperlink{class_generator_a7a4f60e36cf3f1bd7311d3880a9ab8ab}{set\+Generator\+Model}} (const std\+::string \&new\+\_\+generator\+Model)
+\begin{DoxyCompactList}\small\item\em выставляет модель \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a049e1625fc5cb0ba2e22278eb0b40e4b}\label{class_generator_a049e1625fc5cb0ba2e22278eb0b40e4b}} 
+std\+::string \mbox{\hyperlink{class_generator_a049e1625fc5cb0ba2e22278eb0b40e4b}{get\+Generator\+Model}} () const
+\begin{DoxyCompactList}\small\item\em возвращает модель \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4f7d1b03397eb43d4be8f5f727a9d46a}\label{class_generator_a4f7d1b03397eb43d4be8f5f727a9d46a}} 
+bool \mbox{\hyperlink{class_generator_a4f7d1b03397eb43d4be8f5f727a9d46a}{S\+E\+Tconnect}} (const std\+::string \&new\+\_\+port\+\_\+name, const std\+::string \&new\+\_\+baudrate, const std\+::string \&new\+\_\+data\+\_\+bits, const std\+::string \&new\+\_\+stop\+\_\+bits, const std\+::string \&new\+\_\+parity, const std\+::string \&new\+\_\+flow\+\_\+control, const std\+::string \&new\+\_\+model)
+\begin{DoxyCompactList}\small\item\em №1 устанавливает соединение, принимает (new\+\_\+port\+\_\+name, new\+\_\+baudrate, new\+\_\+data\+\_\+bits, new\+\_\+stop\+\_\+bits, new\+\_\+parity, new\+\_\+flow\+\_\+control, \+\_\+generator\+Model) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad7de2ec872dcc51347bd0aa60ed1b78c}\label{class_generator_ad7de2ec872dcc51347bd0aa60ed1b78c}} 
+bool \mbox{\hyperlink{class_generator_ad7de2ec872dcc51347bd0aa60ed1b78c}{S\+E\+Tconnect}} (const std\+::string \&new\+\_\+port\+\_\+name, const std\+::string \&new\+\_\+baudrate, const std\+::string \&new\+\_\+data\+\_\+bits, const std\+::string \&new\+\_\+stop\+\_\+bits, const std\+::string \&new\+\_\+parity, const std\+::string \&new\+\_\+flow\+\_\+control)
+\begin{DoxyCompactList}\small\item\em №2 устанавливает соединение, принимает (new\+\_\+port\+\_\+name, new\+\_\+baudrate, new\+\_\+data\+\_\+bits, new\+\_\+stop\+\_\+bits, new\+\_\+parity, new\+\_\+flow\+\_\+control). \+\_\+generator\+Model запрашивает и определяет сам \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9d9b1bd8ec506e643c71e8c5cc6da108}\label{class_generator_a9d9b1bd8ec506e643c71e8c5cc6da108}} 
+bool \mbox{\hyperlink{class_generator_a9d9b1bd8ec506e643c71e8c5cc6da108}{S\+E\+Tconnect}} (const std\+::string \&new\+\_\+port\+\_\+name, const std\+::string \&new\+\_\+baudrate)
+\begin{DoxyCompactList}\small\item\em №3 устанавливает соединение, принимает (new\+\_\+port\+\_\+name, new\+\_\+baudrate). new\+\_\+data\+\_\+bits, new\+\_\+stop\+\_\+bits, new\+\_\+parity, new\+\_\+flow\+\_\+control и\+\_\+generator\+Model запрашивает и определяет сам \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a7b9d8076c6493a52e2b8e9a63b948e81}\label{class_generator_a7b9d8076c6493a52e2b8e9a63b948e81}} 
+bool \mbox{\hyperlink{class_generator_a7b9d8076c6493a52e2b8e9a63b948e81}{S\+E\+Tconnect}} (const std\+::string \&new\+\_\+port\+\_\+name)
+\begin{DoxyCompactList}\small\item\em №4 устанавливает соединение, принимает (new\+\_\+port\+\_\+name). new\+\_\+baudrate, new\+\_\+data\+\_\+bits, new\+\_\+stop\+\_\+bits, new\+\_\+parity, new\+\_\+flow\+\_\+control и\+\_\+generator\+Model запрашивает и определяет сам \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a23745b70797c902c6c020725bc49d8f3}\label{class_generator_a23745b70797c902c6c020725bc49d8f3}} 
+bool \mbox{\hyperlink{class_generator_a23745b70797c902c6c020725bc49d8f3}{disconnect}} () const
+\begin{DoxyCompactList}\small\item\em обрывает соединение \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae0c244c7f053510411045de026527a5e}\label{class_generator_ae0c244c7f053510411045de026527a5e}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_ae0c244c7f053510411045de026527a5e}{get\+Baudrate\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор стрингов возможных Baudrate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9c651f3acefef20a399003de41b9e2ef}\label{class_generator_a9c651f3acefef20a399003de41b9e2ef}} 
+bool \mbox{\hyperlink{class_generator_a9c651f3acefef20a399003de41b9e2ef}{is\+Valid\+Baudrate\+All}} (const int \&baudrate) const
+\begin{DoxyCompactList}\small\item\em проверяет, что для обоих моделей Baudrate верен и возможен \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa35ffe05a4572b7674ef97db5652e41b}\label{class_generator_aa35ffe05a4572b7674ef97db5652e41b}} 
+bool \mbox{\hyperlink{class_generator_aa35ffe05a4572b7674ef97db5652e41b}{is\+Valid\+Baudrate}} (const int \&baudrate) const
+\begin{DoxyCompactList}\small\item\em проверяет, что для модели выставлен верный Baudrate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4aee25d1c5e13a193dee8b7d5a711db6}\label{class_generator_a4aee25d1c5e13a193dee8b7d5a711db6}} 
+bool {\bfseries change\+Baudrate} (const int \&baudrate)
+\item 
+\mbox{\Hypertarget{class_generator_aff5d5624d3e8d592d025dde74f6b3290}\label{class_generator_aff5d5624d3e8d592d025dde74f6b3290}} 
+void \mbox{\hyperlink{class_generator_aff5d5624d3e8d592d025dde74f6b3290}{set\+Write\+Timeout}} (const int \&new\+\_\+write\+Timeout)
+\begin{DoxyCompactList}\small\item\em ∂выставляет время для записи \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a27cf333e6a2015234e74de2d2c1ac18a}\label{class_generator_a27cf333e6a2015234e74de2d2c1ac18a}} 
+int \mbox{\hyperlink{class_generator_a27cf333e6a2015234e74de2d2c1ac18a}{get\+Write\+Timeout}} () const
+\begin{DoxyCompactList}\small\item\em возвращает время для записи \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4d0378f96ee3f354bf5d57080b9c4e10}\label{class_generator_a4d0378f96ee3f354bf5d57080b9c4e10}} 
+void \mbox{\hyperlink{class_generator_a4d0378f96ee3f354bf5d57080b9c4e10}{set\+Read\+Timeout}} (const int \&new\+\_\+read\+Timeout)
+\begin{DoxyCompactList}\small\item\em ∂выставляет время для чтения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a6ac664b7014f2106b9ee82a1496c8a31}\label{class_generator_a6ac664b7014f2106b9ee82a1496c8a31}} 
+int \mbox{\hyperlink{class_generator_a6ac664b7014f2106b9ee82a1496c8a31}{get\+Read\+Timeout}} () const
+\begin{DoxyCompactList}\small\item\em возвращает время для чтения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a061f04aa79dff41550b61cf13566fa66}\label{class_generator_a061f04aa79dff41550b61cf13566fa66}} 
+void \mbox{\hyperlink{class_generator_a061f04aa79dff41550b61cf13566fa66}{set\+Read\+Wait\+Timeout}} (const int \&new\+\_\+read\+Wait\+Timeout)
+\begin{DoxyCompactList}\small\item\em ∂выставляет время для ожидания \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a39a7eba33aef665e622aae8cf9346f4d}\label{class_generator_a39a7eba33aef665e622aae8cf9346f4d}} 
+int \mbox{\hyperlink{class_generator_a39a7eba33aef665e622aae8cf9346f4d}{get\+Read\+Wait\+Timeout}} () const
+\begin{DoxyCompactList}\small\item\em возвращает время для чтения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad416605d6bd26fd53a5bd488fb77c8cd}\label{class_generator_ad416605d6bd26fd53a5bd488fb77c8cd}} 
+void {\bfseries set\+Attempts\+To\+Connect} (const int \&new\+\_\+attempts\+To\+Connect)
+\item 
+\mbox{\Hypertarget{class_generator_a915911122c79594e168466581904ddf6}\label{class_generator_a915911122c79594e168466581904ddf6}} 
+int {\bfseries get\+Attempts\+To\+Connect} () const
+\item 
+\mbox{\Hypertarget{class_generator_ab23572ae595d1b32994a3d9f0129f41c}\label{class_generator_ab23572ae595d1b32994a3d9f0129f41c}} 
+bool \mbox{\hyperlink{class_generator_ab23572ae595d1b32994a3d9f0129f41c}{is\+Active}} () const
+\begin{DoxyCompactList}\small\item\em ∂проверяет, что генератор живой \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aeadbcd2064195918d84def64a12130b3}\label{class_generator_aeadbcd2064195918d84def64a12130b3}} 
+bool \mbox{\hyperlink{class_generator_aeadbcd2064195918d84def64a12130b3}{send}} (const std\+::string \&command, std\+::string \&response, const bool \&wait\+\_\+for\+\_\+response) const
+\begin{DoxyCompactList}\small\item\em стандартная ф-\/ция отправки команды \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a268cb6b70fe83ec52314c92f32d2922e}\label{class_generator_a268cb6b70fe83ec52314c92f32d2922e}} 
+bool \mbox{\hyperlink{class_generator_a268cb6b70fe83ec52314c92f32d2922e}{send\+Command}} (const std\+::string \&command) const
+\begin{DoxyCompactList}\small\item\em ф-\/ция отправки команды в случае, если НЕ ждём ответа \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3d359a052472d09495570c7f63838002}\label{class_generator_a3d359a052472d09495570c7f63838002}} 
+bool \mbox{\hyperlink{class_generator_a3d359a052472d09495570c7f63838002}{send\+Query}} (const std\+::string \&command, std\+::string \&response) const
+\begin{DoxyCompactList}\small\item\em ф-\/ция отправки команды в случае, если ждём ответа \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad45c6637fe9b643c585db938c93bed4e}\label{class_generator_ad45c6637fe9b643c585db938c93bed4e}} 
+std\+::string \mbox{\hyperlink{class_generator_ad45c6637fe9b643c585db938c93bed4e}{ask}} (const std\+::string \&command) const
+\begin{DoxyCompactList}\small\item\em ф-\/ция отправки команды в случае, если ждём ответа. По сути, урезанный send\+Query, он сам выставляет значения \char`\"{}лишних\char`\"{} переменных и сам создает str для записи responce. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa23012ebb1bb06b2a562c4c40a44d07a}\label{class_generator_aa23012ebb1bb06b2a562c4c40a44d07a}} 
+std\+::string \mbox{\hyperlink{class_generator_aa23012ebb1bb06b2a562c4c40a44d07a}{get\+I\+DN}} (bool $\ast$succeed) const
+\begin{DoxyCompactList}\small\item\em возвращает I\+DN. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a77853bf721319c1fdc6be1732865149b}\label{class_generator_a77853bf721319c1fdc6be1732865149b}} 
+bool \mbox{\hyperlink{class_generator_a77853bf721319c1fdc6be1732865149b}{set\+Default\+Settings}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает настройки по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a8ca385e8340696c72aefea3299c01ad2}\label{class_generator_a8ca385e8340696c72aefea3299c01ad2}} 
+double {\bfseries get\+Average\+Input\+Time} () const
+\item 
+\mbox{\Hypertarget{class_generator_a853ad28c9a30b021ec9d58cee0692389}\label{class_generator_a853ad28c9a30b021ec9d58cee0692389}} 
+double {\bfseries get\+Average\+Output\+Time} () const
+\item 
+\mbox{\Hypertarget{class_generator_ae843e6cfc9f5d7c9bca38ec4c82fcedc}\label{class_generator_ae843e6cfc9f5d7c9bca38ec4c82fcedc}} 
+bool \mbox{\hyperlink{class_generator_ae843e6cfc9f5d7c9bca38ec4c82fcedc}{work\+With\+Amplitude}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с амплитудой \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a0c1d0c8c41776d3d8df472eb7542b44f}\label{class_generator_a0c1d0c8c41776d3d8df472eb7542b44f}} 
+double \mbox{\hyperlink{class_generator_a0c1d0c8c41776d3d8df472eb7542b44f}{get\+Default\+Amplitude}} () const
+\begin{DoxyCompactList}\small\item\em возвращает амплитуду по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9b48db6d6588acf6c6af007008a98dc5}\label{class_generator_a9b48db6d6588acf6c6af007008a98dc5}} 
+bool \mbox{\hyperlink{class_generator_a9b48db6d6588acf6c6af007008a98dc5}{set\+Default\+Amplitude}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает амплитуду по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af6b9cb21219d27d6613052a1c9088424}\label{class_generator_af6b9cb21219d27d6613052a1c9088424}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_af6b9cb21219d27d6613052a1c9088424}{get\+Amplitude\+Type\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор возможных типов значений напряжения для амплитуды \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa1542b7abd232bf0a5cf8b388dff9a35}\label{class_generator_aa1542b7abd232bf0a5cf8b388dff9a35}} 
+double \mbox{\hyperlink{class_generator_aa1542b7abd232bf0a5cf8b388dff9a35}{get\+Min\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&outputZ, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную амплитуду \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a0a4b29da3e4523fedaf3db04afa6edc4}\label{class_generator_a0a4b29da3e4523fedaf3db04afa6edc4}} 
+double \mbox{\hyperlink{class_generator_a0a4b29da3e4523fedaf3db04afa6edc4}{get\+Min\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную амплитуду из запроса в каких величинах её выдать и какая сейчас Function==waveform. Сам определяет, какой сейчас Default\+Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ada6bac86bc5961f6a0171f43a9d1fe6f}\label{class_generator_ada6bac86bc5961f6a0171f43a9d1fe6f}} 
+double \mbox{\hyperlink{class_generator_ada6bac86bc5961f6a0171f43a9d1fe6f}{get\+Min\+Amplitude\+Current}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную амплитуду чисто из запроса в каких величинах её выдать. Сам определяет, какая сейчас Function==waveform и какой Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a6284c76bd8587c63ca667fe1aed2c3f5}\label{class_generator_a6284c76bd8587c63ca667fe1aed2c3f5}} 
+double \mbox{\hyperlink{class_generator_a6284c76bd8587c63ca667fe1aed2c3f5}{get\+Max\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&outputZ, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную амплитуду \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3c46f8fc9afaf118a310d0fdc53cfecf}\label{class_generator_a3c46f8fc9afaf118a310d0fdc53cfecf}} 
+double \mbox{\hyperlink{class_generator_a3c46f8fc9afaf118a310d0fdc53cfecf}{get\+Max\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную амплитуду из запроса в каких величинах её выдать и какая сейчас Function==waveform. Сам определяет, какой сейчас Default\+Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a62ac76fe0dc4c7061b0b8a52f91e636a}\label{class_generator_a62ac76fe0dc4c7061b0b8a52f91e636a}} 
+double \mbox{\hyperlink{class_generator_a62ac76fe0dc4c7061b0b8a52f91e636a}{get\+Max\+Amplitude\+Current}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную амплитуду чисто из запроса в каких величинах её выдать. Сам определяет, какая сейчас Function==waveform и какой Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9b828896905b2192dbc88dba9e77d76f}\label{class_generator_a9b828896905b2192dbc88dba9e77d76f}} 
+double \mbox{\hyperlink{class_generator_a9b828896905b2192dbc88dba9e77d76f}{get\+Step\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&outputZ, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает шаг амплитуды \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a275d153f50c483f188933d2930ba1c02}\label{class_generator_a275d153f50c483f188933d2930ba1c02}} 
+double \mbox{\hyperlink{class_generator_a275d153f50c483f188933d2930ba1c02}{get\+Step\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает шаг амплитуды из запроса в каких величинах её выдать и какая сейчас Function==waveform. Сам определяет, какой сейчас Default\+Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a975514dae76aaa53f3aa285110bd0ef3}\label{class_generator_a975514dae76aaa53f3aa285110bd0ef3}} 
+double \mbox{\hyperlink{class_generator_a975514dae76aaa53f3aa285110bd0ef3}{get\+Step\+Amplitude\+Current}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает шаг амплитуды чисто из запроса в каких величинах её выдать. Сам определяет, какая сейчас Function==waveform и какой Output\+Impedance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_adc7b3d048c331fc961f41657a62850f0}\label{class_generator_adc7b3d048c331fc961f41657a62850f0}} 
+double \mbox{\hyperlink{class_generator_adc7b3d048c331fc961f41657a62850f0}{get\+Decimals\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&outputZ, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em ∂ серьезно, что это такое?? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abf55e9c90f0675fe081f17e0bfb494cb}\label{class_generator_abf55e9c90f0675fe081f17e0bfb494cb}} 
+double \mbox{\hyperlink{class_generator_abf55e9c90f0675fe081f17e0bfb494cb}{get\+Decimals\+Amplitude}} (const std\+::string \&waveform, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em ∂ серьезно, что это такое?? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae4ffacf65e80c6cdcae244ebc97a4565}\label{class_generator_ae4ffacf65e80c6cdcae244ebc97a4565}} 
+double \mbox{\hyperlink{class_generator_ae4ffacf65e80c6cdcae244ebc97a4565}{get\+Decimals\+Amplitude\+Current}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em ∂ серьезно, что это такое?? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a84699ab8e3fe8a0ff47a722b465f2fb2}\label{class_generator_a84699ab8e3fe8a0ff47a722b465f2fb2}} 
+bool \mbox{\hyperlink{class_generator_a84699ab8e3fe8a0ff47a722b465f2fb2}{is\+Valid\+Amplitude}} (const double \&amplitude, const std\+::string \&waveform, const std\+::string \&outputZ, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em проверяет, что аплитуда для заданной формы сигнала не выходит за допустимые границы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9e31a83e93b86b8c9caa120a8c76c533}\label{class_generator_a9e31a83e93b86b8c9caa120a8c76c533}} 
+bool \mbox{\hyperlink{class_generator_a9e31a83e93b86b8c9caa120a8c76c533}{is\+Valid\+Amplitude}} (const double \&amplitude, const std\+::string \&waveform, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em проверяет, что аплитуда для заданной формы сигнала не выходит за допустимые границы, при этом сама определяет Default\+Output\+Impedance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_generator_ae114aafac0dcdf6a33c276f5baa77d1e}{is\+Valid\+Amplitude}} (const double \&amplitude, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Amplitude. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aab4bfc168e0391297788ce0d4926a42b}\label{class_generator_aab4bfc168e0391297788ce0d4926a42b}} 
+bool \mbox{\hyperlink{class_generator_aab4bfc168e0391297788ce0d4926a42b}{is\+Valid\+Amplitude\+Type}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em проверяет, что отправлена правильная единица измерения амплитуды сигнала \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a31b94228208123eeb3b2cc4094fe07e8}\label{class_generator_a31b94228208123eeb3b2cc4094fe07e8}} 
+bool \mbox{\hyperlink{class_generator_a31b94228208123eeb3b2cc4094fe07e8}{set\+Amplitude}} (const double \&amplitude, const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em устанавливает амплитуду \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_add7bdba7962fda43f234ab59d3c88731}\label{class_generator_add7bdba7962fda43f234ab59d3c88731}} 
+double \mbox{\hyperlink{class_generator_add7bdba7962fda43f234ab59d3c88731}{get\+Amplitude}} (const std\+::string \&unit) const
+\begin{DoxyCompactList}\small\item\em возвращает амплитуду \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abed360eeaf535f688d3ee41258afc638}\label{class_generator_abed360eeaf535f688d3ee41258afc638}} 
+bool \mbox{\hyperlink{class_generator_abed360eeaf535f688d3ee41258afc638}{work\+With\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы со смещением \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abeed801a7af48f7c41f1181c4e3efcb0}\label{class_generator_abeed801a7af48f7c41f1181c4e3efcb0}} 
+double \mbox{\hyperlink{class_generator_abeed801a7af48f7c41f1181c4e3efcb0}{get\+Default\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em возвращают смещение по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a301bfca0e5e677e3737a0c3acfab47cd}\label{class_generator_a301bfca0e5e677e3737a0c3acfab47cd}} 
+bool \mbox{\hyperlink{class_generator_a301bfca0e5e677e3737a0c3acfab47cd}{set\+Default\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает смещение по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aaa5d60c4bd98cb479915c333e48872a8}\label{class_generator_aaa5d60c4bd98cb479915c333e48872a8}} 
+double \mbox{\hyperlink{class_generator_aaa5d60c4bd98cb479915c333e48872a8}{get\+Min\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальное смещение \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad0e79177d2b24f1931ab667d7e9058d0}\label{class_generator_ad0e79177d2b24f1931ab667d7e9058d0}} 
+double \mbox{\hyperlink{class_generator_ad0e79177d2b24f1931ab667d7e9058d0}{get\+Max\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальное смещение \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad437effef6ea47bc5ac2ca99380b27f7}\label{class_generator_ad437effef6ea47bc5ac2ca99380b27f7}} 
+double \mbox{\hyperlink{class_generator_ad437effef6ea47bc5ac2ca99380b27f7}{get\+Step\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em возвращает шаг смещения \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aba94ce13923344340ece8a90498a4241}\label{class_generator_aba94ce13923344340ece8a90498a4241}} 
+double \mbox{\hyperlink{class_generator_aba94ce13923344340ece8a90498a4241}{get\+Decimals\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em ∂ что это такое? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a66dc0327c18d21bb72c420933fb05a8d}\label{class_generator_a66dc0327c18d21bb72c420933fb05a8d}} 
+bool \mbox{\hyperlink{class_generator_a66dc0327c18d21bb72c420933fb05a8d}{is\+Valid\+Offset}} (const double \&offset) const
+\begin{DoxyCompactList}\small\item\em проверяет что установлено адекватное смещение (т.\+е. внутри допустимого диапазона) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ab68a6fd48cd339b240db39bf8b4a438e}\label{class_generator_ab68a6fd48cd339b240db39bf8b4a438e}} 
+bool \mbox{\hyperlink{class_generator_ab68a6fd48cd339b240db39bf8b4a438e}{set\+Offset}} (const double \&offset) const
+\begin{DoxyCompactList}\small\item\em устанавливает смещение \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa39c22a3042ee0b7bad5b904cb8d226d}\label{class_generator_aa39c22a3042ee0b7bad5b904cb8d226d}} 
+double \mbox{\hyperlink{class_generator_aa39c22a3042ee0b7bad5b904cb8d226d}{get\+Offset}} () const
+\begin{DoxyCompactList}\small\item\em возвращает смещение \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aeae91828e0ebfc133d628351fc51f79a}\label{class_generator_aeae91828e0ebfc133d628351fc51f79a}} 
+bool \mbox{\hyperlink{class_generator_aeae91828e0ebfc133d628351fc51f79a}{work\+With\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с частотой \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a19e7eac9ec2d8c27996656974f8c07a0}\label{class_generator_a19e7eac9ec2d8c27996656974f8c07a0}} 
+double \mbox{\hyperlink{class_generator_a19e7eac9ec2d8c27996656974f8c07a0}{get\+Default\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em возвращает частоту по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af4a8761317ad9a857fc8c6aecde14e21}\label{class_generator_af4a8761317ad9a857fc8c6aecde14e21}} 
+bool \mbox{\hyperlink{class_generator_af4a8761317ad9a857fc8c6aecde14e21}{set\+Default\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает частоту по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4e71f317252664b0425f771a59072a7a}\label{class_generator_a4e71f317252664b0425f771a59072a7a}} 
+double \mbox{\hyperlink{class_generator_a4e71f317252664b0425f771a59072a7a}{get\+Min\+Frequency}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную чистоту \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a09f69b0a3b6d67a1e81dd0b311ef50d0}\label{class_generator_a09f69b0a3b6d67a1e81dd0b311ef50d0}} 
+double \mbox{\hyperlink{class_generator_a09f69b0a3b6d67a1e81dd0b311ef50d0}{get\+Min\+Frequency\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную чистоту. Сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a8a60729079ba8210974f64858136c8d4}\label{class_generator_a8a60729079ba8210974f64858136c8d4}} 
+double \mbox{\hyperlink{class_generator_a8a60729079ba8210974f64858136c8d4}{get\+Max\+Frequency}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную частоту \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a68b296760e900867a319333aafb9469b}\label{class_generator_a68b296760e900867a319333aafb9469b}} 
+double \mbox{\hyperlink{class_generator_a68b296760e900867a319333aafb9469b}{get\+Max\+Frequency\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную чистоту. Сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a06d5a64ddeb0188d5b61e408e695a4d7}\label{class_generator_a06d5a64ddeb0188d5b61e408e695a4d7}} 
+double \mbox{\hyperlink{class_generator_a06d5a64ddeb0188d5b61e408e695a4d7}{get\+Step\+Frequency}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает шаг частоты \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abf4c944eee01a8af75ebf20cf0b2c2bb}\label{class_generator_abf4c944eee01a8af75ebf20cf0b2c2bb}} 
+double \mbox{\hyperlink{class_generator_abf4c944eee01a8af75ebf20cf0b2c2bb}{get\+Step\+Frequency\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает шаг частоты. Сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a10a8a89278d0f9aba7f780ca3a181c30}\label{class_generator_a10a8a89278d0f9aba7f780ca3a181c30}} 
+double \mbox{\hyperlink{class_generator_a10a8a89278d0f9aba7f780ca3a181c30}{get\+Decimals\+Frequency}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em ∂ что это такое? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a1fa6a159a0e72789a3f5b0d3f3cfe4e1}\label{class_generator_a1fa6a159a0e72789a3f5b0d3f3cfe4e1}} 
+double \mbox{\hyperlink{class_generator_a1fa6a159a0e72789a3f5b0d3f3cfe4e1}{get\+Decimals\+Frequency\+Current}} () const
+\begin{DoxyCompactList}\small\item\em ∂ что это такое? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_generator_aab6be382a51b2e7b664f1cb5882e3fb6}{is\+Valid\+Frequency}} (const double \&frequency) const
+\begin{DoxyCompactList}\small\item\em Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Frequency. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae6da8c2cc8d80aff81dc282a7b53e26f}\label{class_generator_ae6da8c2cc8d80aff81dc282a7b53e26f}} 
+bool \mbox{\hyperlink{class_generator_ae6da8c2cc8d80aff81dc282a7b53e26f}{set\+Frequency}} (const double \&frequency) const
+\begin{DoxyCompactList}\small\item\em устанавливает частоту \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a72ffcb5f6fe632c4451608f5f2e9830d}\label{class_generator_a72ffcb5f6fe632c4451608f5f2e9830d}} 
+double \mbox{\hyperlink{class_generator_a72ffcb5f6fe632c4451608f5f2e9830d}{get\+Frequency}} () const
+\begin{DoxyCompactList}\small\item\em возвращает частоту \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a34304a7ac523e610d5b6f70a10051ce7}\label{class_generator_a34304a7ac523e610d5b6f70a10051ce7}} 
+bool \mbox{\hyperlink{class_generator_a34304a7ac523e610d5b6f70a10051ce7}{work\+With\+Function}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с типом функции Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aca7d4e5307a1c9aa7114724576b75e06}\label{class_generator_aca7d4e5307a1c9aa7114724576b75e06}} 
+std\+::string \mbox{\hyperlink{class_generator_aca7d4e5307a1c9aa7114724576b75e06}{get\+Default\+Function}} () const
+\begin{DoxyCompactList}\small\item\em возвращает функцию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aab77920e2cf7896cfbd77feb87d0ad52}\label{class_generator_aab77920e2cf7896cfbd77feb87d0ad52}} 
+bool \mbox{\hyperlink{class_generator_aab77920e2cf7896cfbd77feb87d0ad52}{set\+Default\+Function}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa9ace39a048c02452a514bac7282e2cd}\label{class_generator_aa9ace39a048c02452a514bac7282e2cd}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_aa9ace39a048c02452a514bac7282e2cd}{get\+Function\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор возможных функций \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a2b33186f21b2defbfc645a10840c513e}\label{class_generator_a2b33186f21b2defbfc645a10840c513e}} 
+int \mbox{\hyperlink{class_generator_a2b33186f21b2defbfc645a10840c513e}{function\+Number\+From\+String}} (const std\+::string \&function\+\_\+string) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет строчку с её номером и выдаёт последний \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af94ee5ee7a9a9629570c3b28a060eb55}\label{class_generator_af94ee5ee7a9a9629570c3b28a060eb55}} 
+std\+::string \mbox{\hyperlink{class_generator_af94ee5ee7a9a9629570c3b28a060eb55}{function\+String\+From\+Number}} (const int \&function\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет номер строчки с самойстрочкой и выдаёт последнюю \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3ff6cccb1fe27a7490a2b39314bf9282}\label{class_generator_a3ff6cccb1fe27a7490a2b39314bf9282}} 
+bool \mbox{\hyperlink{class_generator_a3ff6cccb1fe27a7490a2b39314bf9282}{set\+Function}} (const int \&function) const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию по её номеру \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a71c61e3f545c22eae0246c45ee5354a7}\label{class_generator_a71c61e3f545c22eae0246c45ee5354a7}} 
+bool \mbox{\hyperlink{class_generator_a71c61e3f545c22eae0246c45ee5354a7}{set\+Function}} (const std\+::string \&function) const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию по её названию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad108c782d1f5d592cfe356afb50c7e9f}\label{class_generator_ad108c782d1f5d592cfe356afb50c7e9f}} 
+std\+::string \mbox{\hyperlink{class_generator_ad108c782d1f5d592cfe356afb50c7e9f}{get\+Function}} () const
+\begin{DoxyCompactList}\small\item\em возвращает название функции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a601a98e1a6f7b322ef3e42047b66b119}\label{class_generator_a601a98e1a6f7b322ef3e42047b66b119}} 
+bool \mbox{\hyperlink{class_generator_a601a98e1a6f7b322ef3e42047b66b119}{work\+With\+Inverse}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с инверсией \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9384597d3d32c5f2eda15b5b39dcf390}\label{class_generator_a9384597d3d32c5f2eda15b5b39dcf390}} 
+bool \mbox{\hyperlink{class_generator_a9384597d3d32c5f2eda15b5b39dcf390}{get\+Default\+Inverse}} () const
+\begin{DoxyCompactList}\small\item\em возвращает инверсию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_afa7252a9e9d7f517718ec8a85995448c}\label{class_generator_afa7252a9e9d7f517718ec8a85995448c}} 
+bool \mbox{\hyperlink{class_generator_afa7252a9e9d7f517718ec8a85995448c}{set\+Default\+Inverse}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает инверсию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a20b195b59ce696b26e1991084073756b}\label{class_generator_a20b195b59ce696b26e1991084073756b}} 
+bool \mbox{\hyperlink{class_generator_a20b195b59ce696b26e1991084073756b}{set\+Inverse}} (const bool \&inverse) const
+\begin{DoxyCompactList}\small\item\em устанавливает инверсия \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a61c076a0032f87405475f4078f6c872d}\label{class_generator_a61c076a0032f87405475f4078f6c872d}} 
+bool \mbox{\hyperlink{class_generator_a61c076a0032f87405475f4078f6c872d}{get\+Inverse}} () const
+\begin{DoxyCompactList}\small\item\em возвращает инверсия \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae7ef97da4a79e62650adc61ea63b1f49}\label{class_generator_ae7ef97da4a79e62650adc61ea63b1f49}} 
+bool \mbox{\hyperlink{class_generator_ae7ef97da4a79e62650adc61ea63b1f49}{work\+With\+Synchronization}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с синхронизацией \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4225e4ad5d469c1e82f77b651f1a0ae9}\label{class_generator_a4225e4ad5d469c1e82f77b651f1a0ae9}} 
+bool \mbox{\hyperlink{class_generator_a4225e4ad5d469c1e82f77b651f1a0ae9}{get\+Default\+Synchronization}} () const
+\begin{DoxyCompactList}\small\item\em возвращает синхронизацию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_afc120b45a99380e64abce03586b8b4c6}\label{class_generator_afc120b45a99380e64abce03586b8b4c6}} 
+bool \mbox{\hyperlink{class_generator_afc120b45a99380e64abce03586b8b4c6}{set\+Default\+Synchronization}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает синхронизацию по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a2215009cffebab1126bb828466ab6957}\label{class_generator_a2215009cffebab1126bb828466ab6957}} 
+bool \mbox{\hyperlink{class_generator_a2215009cffebab1126bb828466ab6957}{set\+Synchronization}} (const bool \&synchronization) const
+\begin{DoxyCompactList}\small\item\em устанавливает синхронизацию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a624a6d776bcfc3061caabdc060e96d66}\label{class_generator_a624a6d776bcfc3061caabdc060e96d66}} 
+bool \mbox{\hyperlink{class_generator_a624a6d776bcfc3061caabdc060e96d66}{get\+Synchronization}} () const
+\begin{DoxyCompactList}\small\item\em возвращает синхронизацию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a393695c1164b641e685618d92984d425}\label{class_generator_a393695c1164b641e685618d92984d425}} 
+bool \mbox{\hyperlink{class_generator_a393695c1164b641e685618d92984d425}{work\+With\+Output\+Impedance}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с выходным импедансом \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae64b4bb5f27300b603e0b0176f34dc9b}\label{class_generator_ae64b4bb5f27300b603e0b0176f34dc9b}} 
+std\+::string \mbox{\hyperlink{class_generator_ae64b4bb5f27300b603e0b0176f34dc9b}{get\+Default\+Output\+Impedance}} () const
+\begin{DoxyCompactList}\small\item\em возвращает выходной импеданс по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a5939d24d6199f3307a194b89c631b385}\label{class_generator_a5939d24d6199f3307a194b89c631b385}} 
+bool \mbox{\hyperlink{class_generator_a5939d24d6199f3307a194b89c631b385}{set\+Default\+Output\+Impedance}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает выходной импеданс по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a40356114fc9406205962975cea944fd2}\label{class_generator_a40356114fc9406205962975cea944fd2}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_a40356114fc9406205962975cea944fd2}{get\+Output\+Impedance\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает вектор выходных импедансов \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af81a227d9534980474b0391e8aee9522}\label{class_generator_af81a227d9534980474b0391e8aee9522}} 
+int \mbox{\hyperlink{class_generator_af81a227d9534980474b0391e8aee9522}{output\+Impedance\+Number\+From\+String}} (const std\+::string \&output\+Impedance\+\_\+string) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет строчку импеданса с её номером и выдаёт последний \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a7b6ffd607811e0bd81f418520dbb676e}\label{class_generator_a7b6ffd607811e0bd81f418520dbb676e}} 
+std\+::string \mbox{\hyperlink{class_generator_a7b6ffd607811e0bd81f418520dbb676e}{output\+Impedance\+String\+From\+Number}} (const int \&output\+Impedance\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет номер строчки импеданса с самойстрочкой импеданса и выдаёт последнюю \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af60fa04347bac67d2a9fb972f50a115a}\label{class_generator_af60fa04347bac67d2a9fb972f50a115a}} 
+bool \mbox{\hyperlink{class_generator_af60fa04347bac67d2a9fb972f50a115a}{set\+Output\+Impedance}} (const int \&output\+Impedance) const
+\begin{DoxyCompactList}\small\item\em устанавливает выходной импеданс через его номер \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aac34bce1f13eced6727c1f104d318ec5}\label{class_generator_aac34bce1f13eced6727c1f104d318ec5}} 
+bool \mbox{\hyperlink{class_generator_aac34bce1f13eced6727c1f104d318ec5}{set\+Output\+Impedance}} (const std\+::string \&output\+Impedance) const
+\begin{DoxyCompactList}\small\item\em устанавливает выходной импеданс через его название \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a0647cc59e456d89f3ad5d91ad357d1ae}\label{class_generator_a0647cc59e456d89f3ad5d91ad357d1ae}} 
+std\+::string \mbox{\hyperlink{class_generator_a0647cc59e456d89f3ad5d91ad357d1ae}{get\+Output\+Impedance}} () const
+\begin{DoxyCompactList}\small\item\em возвращает выходной импеданс через его название \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a499a375e900f29787dc24b47c9a9741b}\label{class_generator_a499a375e900f29787dc24b47c9a9741b}} 
+bool \mbox{\hyperlink{class_generator_a499a375e900f29787dc24b47c9a9741b}{work\+With\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с амплитудной модуляцией \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a45d90f8e3c36f8b1c49ac41390085756}\label{class_generator_a45d90f8e3c36f8b1c49ac41390085756}} 
+int \mbox{\hyperlink{class_generator_a45d90f8e3c36f8b1c49ac41390085756}{get\+Default\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em возвращает глубину амплитудной модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ac52344b92dd0ef587f734a4a4511fbed}\label{class_generator_ac52344b92dd0ef587f734a4a4511fbed}} 
+bool \mbox{\hyperlink{class_generator_ac52344b92dd0ef587f734a4a4511fbed}{set\+Default\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает глубину амплитудной модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae2c3489f8d9b21081f9dbd12aef9d7ab}\label{class_generator_ae2c3489f8d9b21081f9dbd12aef9d7ab}} 
+int \mbox{\hyperlink{class_generator_ae2c3489f8d9b21081f9dbd12aef9d7ab}{get\+Min\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную глубину амплитудной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3de27c4fac290526415e15f86b53fd03}\label{class_generator_a3de27c4fac290526415e15f86b53fd03}} 
+int \mbox{\hyperlink{class_generator_a3de27c4fac290526415e15f86b53fd03}{get\+Max\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную глубину амплитудной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a555906d0368c4527f459846599d7310b}\label{class_generator_a555906d0368c4527f459846599d7310b}} 
+bool \mbox{\hyperlink{class_generator_a555906d0368c4527f459846599d7310b}{is\+Valid\+A\+M\+Depth}} (const int \&persentage) const
+\begin{DoxyCompactList}\small\item\em проверяет, что глубина амплитудной модуляции не выходит за допустимые границы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae8cb71f67accd0d35b678634098acdb5}\label{class_generator_ae8cb71f67accd0d35b678634098acdb5}} 
+bool \mbox{\hyperlink{class_generator_ae8cb71f67accd0d35b678634098acdb5}{set\+A\+M\+Depth}} (const int \&persentage) const
+\begin{DoxyCompactList}\small\item\em устанавливает глубину амплитудной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a84d2d715cae559e7764ec9ff11ea7489}\label{class_generator_a84d2d715cae559e7764ec9ff11ea7489}} 
+int \mbox{\hyperlink{class_generator_a84d2d715cae559e7764ec9ff11ea7489}{get\+A\+M\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em возвращает глубину амплитудной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ac31b4ff4ac24a8b9218e68cfc375c0cb}\label{class_generator_ac31b4ff4ac24a8b9218e68cfc375c0cb}} 
+bool \mbox{\hyperlink{class_generator_ac31b4ff4ac24a8b9218e68cfc375c0cb}{work\+With\+F\+M\+Span}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с частотной модуляцией \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a6e8e870016548f8ee865483d257efcdf}\label{class_generator_a6e8e870016548f8ee865483d257efcdf}} 
+double \mbox{\hyperlink{class_generator_a6e8e870016548f8ee865483d257efcdf}{get\+Default\+F\+M\+Span}} () const
+\begin{DoxyCompactList}\small\item\em возвращает интервал==Span частотной модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_adc2b76323f6817192fd4dcff03b3861d}\label{class_generator_adc2b76323f6817192fd4dcff03b3861d}} 
+bool \mbox{\hyperlink{class_generator_adc2b76323f6817192fd4dcff03b3861d}{set\+Default\+F\+M\+Span}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает интервал частотной модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_add45e1b5dc97c8918312eb0dda0981d7}\label{class_generator_add45e1b5dc97c8918312eb0dda0981d7}} 
+double \mbox{\hyperlink{class_generator_add45e1b5dc97c8918312eb0dda0981d7}{get\+Min\+F\+M\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальный интервал частотной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a294bf7e3edd9e911184d234e269b8296}\label{class_generator_a294bf7e3edd9e911184d234e269b8296}} 
+double \mbox{\hyperlink{class_generator_a294bf7e3edd9e911184d234e269b8296}{get\+Min\+F\+M\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальный интервал частотной модуляции. Сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a831242b0c392f182ac5ba5c524697763}\label{class_generator_a831242b0c392f182ac5ba5c524697763}} 
+double \mbox{\hyperlink{class_generator_a831242b0c392f182ac5ba5c524697763}{get\+Max\+F\+M\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальный интервал частотной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a6eb1e45f2b0e03f20c68ce1f4c7960c2}\label{class_generator_a6eb1e45f2b0e03f20c68ce1f4c7960c2}} 
+double \mbox{\hyperlink{class_generator_a6eb1e45f2b0e03f20c68ce1f4c7960c2}{get\+Max\+F\+M\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальный интервал частотной модуляции. Сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_acc4e55396dfad0b2649d3c414f7e1606}\label{class_generator_acc4e55396dfad0b2649d3c414f7e1606}} 
+bool \mbox{\hyperlink{class_generator_acc4e55396dfad0b2649d3c414f7e1606}{is\+Valid\+F\+M\+Span}} (const int \&span, const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em проверяет, что интервал для заданной формы сигнала не выходит за допустимые границы \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_generator_a8157fbe6c4591e1cf97dca4cbb0ed8da}{is\+Valid\+F\+M\+Span}} (const int \&span) const
+\begin{DoxyCompactList}\small\item\em Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+F\+M\+Span. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3018fb17d0d6141bc01c5628725bed19}\label{class_generator_a3018fb17d0d6141bc01c5628725bed19}} 
+bool \mbox{\hyperlink{class_generator_a3018fb17d0d6141bc01c5628725bed19}{set\+F\+M\+Span}} (const double \&span) const
+\begin{DoxyCompactList}\small\item\em устанавливает интервал частотной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a444ca618efeeb2c9118459ef24088cb2}\label{class_generator_a444ca618efeeb2c9118459ef24088cb2}} 
+double \mbox{\hyperlink{class_generator_a444ca618efeeb2c9118459ef24088cb2}{get\+F\+M\+Span}} () const
+\begin{DoxyCompactList}\small\item\em возвращает интервал частотной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a0b7081075e83e3bb22daee738503dde7}\label{class_generator_a0b7081075e83e3bb22daee738503dde7}} 
+bool \mbox{\hyperlink{class_generator_a0b7081075e83e3bb22daee738503dde7}{work\+With\+Modulation\+Function}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с функцией модуляции (правый столбик в S\+W\+E\+E\+P/\+M\+O\+D\+U\+L\+A\+TE) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae6000be9405793c0322df4feebca3e4b}\label{class_generator_ae6000be9405793c0322df4feebca3e4b}} 
+std\+::string \mbox{\hyperlink{class_generator_ae6000be9405793c0322df4feebca3e4b}{get\+Default\+Modulation\+Function}} () const
+\begin{DoxyCompactList}\small\item\em возвращает функцию модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a8cf6d6e7160a4091a0927c4222ae909c}\label{class_generator_a8cf6d6e7160a4091a0927c4222ae909c}} 
+bool \mbox{\hyperlink{class_generator_a8cf6d6e7160a4091a0927c4222ae909c}{set\+Default\+Modulation\+Function}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a623785211fe9971a331097315d8af516}\label{class_generator_a623785211fe9971a331097315d8af516}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_a623785211fe9971a331097315d8af516}{get\+Modulation\+Function\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор возможных функций модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ad265989da5df0ff3dce91e8c73dda708}\label{class_generator_ad265989da5df0ff3dce91e8c73dda708}} 
+int \mbox{\hyperlink{class_generator_ad265989da5df0ff3dce91e8c73dda708}{modulation\+Function\+Number\+From\+String}} (const std\+::string \&function\+\_\+string) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет строчку функции модуляции с её номером и выдаёт последний \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a592e700acff156ee1f1bf0fb89b3c377}\label{class_generator_a592e700acff156ee1f1bf0fb89b3c377}} 
+std\+::string \mbox{\hyperlink{class_generator_a592e700acff156ee1f1bf0fb89b3c377}{modulation\+Function\+String\+From\+Number}} (const int \&function\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет номер строчки функции модуляции с самой строчкой и выдаёт последнюю \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a9ebcf761d4e3367000c0359c032e15b1}\label{class_generator_a9ebcf761d4e3367000c0359c032e15b1}} 
+bool \mbox{\hyperlink{class_generator_a9ebcf761d4e3367000c0359c032e15b1}{set\+Modulation\+Function}} (const int \&function) const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию модуляции через её номер \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a1c6d90e188d728e7c9476f6160eddb89}\label{class_generator_a1c6d90e188d728e7c9476f6160eddb89}} 
+bool \mbox{\hyperlink{class_generator_a1c6d90e188d728e7c9476f6160eddb89}{set\+Modulation\+Function}} (const std\+::string \&function) const
+\begin{DoxyCompactList}\small\item\em устанавливает функцию модуляции через её название \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a071aa09103ddc7c42d4b382613efcc69}\label{class_generator_a071aa09103ddc7c42d4b382613efcc69}} 
+std\+::string \mbox{\hyperlink{class_generator_a071aa09103ddc7c42d4b382613efcc69}{get\+Modulation\+Function}} () const
+\begin{DoxyCompactList}\small\item\em возвращает функцию модуляции через её название \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_generator_ad9f7998ee5ee3aa71318e96962b189f2}{work\+With\+Modulation\+Enabled}} () const
+\begin{DoxyCompactList}\small\item\em см. \mbox{\hyperlink{class_d_s345}{D\+S345}}\+: Programming Commands 3-\/5 (стр. 55) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa3eee149142083785bbf759441f114c3}\label{class_generator_aa3eee149142083785bbf759441f114c3}} 
+bool \mbox{\hyperlink{class_generator_aa3eee149142083785bbf759441f114c3}{get\+Default\+Modulation\+Enabled}} () const
+\begin{DoxyCompactList}\small\item\em возвращает положение \char`\"{}включателя\char`\"{} модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae541d8e227dc865138a3ca8c88a7afbe}\label{class_generator_ae541d8e227dc865138a3ca8c88a7afbe}} 
+bool \mbox{\hyperlink{class_generator_ae541d8e227dc865138a3ca8c88a7afbe}{set\+Default\+Modulation\+Enabled}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает положение \char`\"{}включателя\char`\"{} модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a08dfae38e0a14ba31eb1476d6eb96963}\label{class_generator_a08dfae38e0a14ba31eb1476d6eb96963}} 
+bool \mbox{\hyperlink{class_generator_a08dfae38e0a14ba31eb1476d6eb96963}{set\+Modulation\+Enabled}} (const bool \&enable) const
+\begin{DoxyCompactList}\small\item\em переключает включатель модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a768b684163b2b49b771b5ff30dc207aa}\label{class_generator_a768b684163b2b49b771b5ff30dc207aa}} 
+bool \mbox{\hyperlink{class_generator_a768b684163b2b49b771b5ff30dc207aa}{get\+Modulation\+Enabled}} () const
+\begin{DoxyCompactList}\small\item\em возвращает положение включателя модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ab0f6070b3dcba6d24fdadad7b655bc62}\label{class_generator_ab0f6070b3dcba6d24fdadad7b655bc62}} 
+bool \mbox{\hyperlink{class_generator_ab0f6070b3dcba6d24fdadad7b655bc62}{work\+With\+Modulation\+Type}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с типом модуляции (левый столбик в S\+W\+E\+E\+P/\+M\+O\+D\+U\+L\+A\+TE) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a279900139416019edf258416214dcf40}\label{class_generator_a279900139416019edf258416214dcf40}} 
+std\+::string \mbox{\hyperlink{class_generator_a279900139416019edf258416214dcf40}{get\+Default\+Modulation\+Type}} () const
+\begin{DoxyCompactList}\small\item\em возвращает тип модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a29b1445b7390cb97639c10d54d7ba58e}\label{class_generator_a29b1445b7390cb97639c10d54d7ba58e}} 
+bool \mbox{\hyperlink{class_generator_a29b1445b7390cb97639c10d54d7ba58e}{set\+Default\+Modulation\+Type}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает тип модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a916af8b52c3752a128376aed82675f33}\label{class_generator_a916af8b52c3752a128376aed82675f33}} 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_generator_a916af8b52c3752a128376aed82675f33}{get\+Modulation\+Type\+List}} () const
+\begin{DoxyCompactList}\small\item\em возвращает Вектор возможной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a2d7324a3f798f81154a2d23412b5d0ba}\label{class_generator_a2d7324a3f798f81154a2d23412b5d0ba}} 
+int \mbox{\hyperlink{class_generator_a2d7324a3f798f81154a2d23412b5d0ba}{modulation\+Type\+Number\+From\+String}} (const std\+::string \&type\+\_\+string) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет строчку типа модуляции с её номером и выдаёт последний \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a6a3887ee9cf054228e7055aa2b3361e5}\label{class_generator_a6a3887ee9cf054228e7055aa2b3361e5}} 
+std\+::string \mbox{\hyperlink{class_generator_a6a3887ee9cf054228e7055aa2b3361e5}{modulation\+Type\+String\+From\+Number}} (const int \&type\+\_\+number) const
+\begin{DoxyCompactList}\small\item\em Сопоставляет номер строчки типа модуляции с самой строчкой и выдаёт последнюю \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a5fec9d8c33ffed0dcede91f63397d979}\label{class_generator_a5fec9d8c33ffed0dcede91f63397d979}} 
+bool \mbox{\hyperlink{class_generator_a5fec9d8c33ffed0dcede91f63397d979}{set\+Modulation\+Type}} (const int \&type) const
+\begin{DoxyCompactList}\small\item\em устанавливает тип модуляции через его номер \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae853d8697633e713782e9674eb2bfe1a}\label{class_generator_ae853d8697633e713782e9674eb2bfe1a}} 
+bool \mbox{\hyperlink{class_generator_ae853d8697633e713782e9674eb2bfe1a}{set\+Modulation\+Type}} (const std\+::string \&type) const
+\begin{DoxyCompactList}\small\item\em устанавливает тип модуляции через его название \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abb5f98103292f037d2e7e3e3ab15532f}\label{class_generator_abb5f98103292f037d2e7e3e3ab15532f}} 
+std\+::string \mbox{\hyperlink{class_generator_abb5f98103292f037d2e7e3e3ab15532f}{get\+Modulation\+Type}} () const
+\begin{DoxyCompactList}\small\item\em возвращает тип модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a349122d5fec96be32fe159174670b24c}\label{class_generator_a349122d5fec96be32fe159174670b24c}} 
+bool \mbox{\hyperlink{class_generator_a349122d5fec96be32fe159174670b24c}{work\+With\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы со скоростью==Rate модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a578a867a06fc922edd497b602d9bad6a}\label{class_generator_a578a867a06fc922edd497b602d9bad6a}} 
+double \mbox{\hyperlink{class_generator_a578a867a06fc922edd497b602d9bad6a}{get\+Default\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em возвращает скорость модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a77d9c2fe7bafc5cb3a85f18395e90cfd}\label{class_generator_a77d9c2fe7bafc5cb3a85f18395e90cfd}} 
+bool \mbox{\hyperlink{class_generator_a77d9c2fe7bafc5cb3a85f18395e90cfd}{set\+Default\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает скорость модуляции по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3f978f4e5a87febe1a0a09b7571f1e07}\label{class_generator_a3f978f4e5a87febe1a0a09b7571f1e07}} 
+double \mbox{\hyperlink{class_generator_a3f978f4e5a87febe1a0a09b7571f1e07}{get\+Min\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную скорость модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa549a278b9b8b790a239fb5f9236f794}\label{class_generator_aa549a278b9b8b790a239fb5f9236f794}} 
+double \mbox{\hyperlink{class_generator_aa549a278b9b8b790a239fb5f9236f794}{get\+Max\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную скорость модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_ae5268c641d3c82302fe1bc334c57b1a0}\label{class_generator_ae5268c641d3c82302fe1bc334c57b1a0}} 
+double \mbox{\hyperlink{class_generator_ae5268c641d3c82302fe1bc334c57b1a0}{get\+Step\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em возвращает шаг скорости модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a5a704b71bac3c0c038fbcadf8a9948c8}\label{class_generator_a5a704b71bac3c0c038fbcadf8a9948c8}} 
+double \mbox{\hyperlink{class_generator_a5a704b71bac3c0c038fbcadf8a9948c8}{get\+Decimals\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em ∂ что это такое? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_abaf6862f053a730f958399ca808b7004}\label{class_generator_abaf6862f053a730f958399ca808b7004}} 
+bool \mbox{\hyperlink{class_generator_abaf6862f053a730f958399ca808b7004}{is\+Valid\+Modulation\+Rate}} (const double \&rate) const
+\begin{DoxyCompactList}\small\item\em проверяет, что скорость модуляции не выходит за допустимые границы \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa33feae61106abc00c5646239adcd6c4}\label{class_generator_aa33feae61106abc00c5646239adcd6c4}} 
+bool \mbox{\hyperlink{class_generator_aa33feae61106abc00c5646239adcd6c4}{set\+Modulation\+Rate}} (const double \&rate) const
+\begin{DoxyCompactList}\small\item\em устанавливает скорость модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a891346dfd2c5bdd575374620d58f778d}\label{class_generator_a891346dfd2c5bdd575374620d58f778d}} 
+double \mbox{\hyperlink{class_generator_a891346dfd2c5bdd575374620d58f778d}{get\+Modulation\+Rate}} () const
+\begin{DoxyCompactList}\small\item\em возвращает скорость модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a820e2649cc97d3c9b1fbb40ca80edb3c}\label{class_generator_a820e2649cc97d3c9b1fbb40ca80edb3c}} 
+bool \mbox{\hyperlink{class_generator_a820e2649cc97d3c9b1fbb40ca80edb3c}{work\+With\+Modulation\+Span}} () const
+\begin{DoxyCompactList}\small\item\em проверяет возможность работы с интервалом/глубиной модуляции \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a94049024a56c06515a65a5162c4fc8b5}\label{class_generator_a94049024a56c06515a65a5162c4fc8b5}} 
+double \mbox{\hyperlink{class_generator_a94049024a56c06515a65a5162c4fc8b5}{get\+Default\+Modulation\+Span}} () const
+\begin{DoxyCompactList}\small\item\em возвращает интервал/глубину по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a358a3351251969556de7c9ce38a6bf1d}\label{class_generator_a358a3351251969556de7c9ce38a6bf1d}} 
+bool \mbox{\hyperlink{class_generator_a358a3351251969556de7c9ce38a6bf1d}{set\+Default\+Modulation\+Span}} () const
+\begin{DoxyCompactList}\small\item\em устанавливает интервал/глубину по умолчанию \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aff1339bd62934c6ec0ef3e552abde868}\label{class_generator_aff1339bd62934c6ec0ef3e552abde868}} 
+double \mbox{\hyperlink{class_generator_aff1339bd62934c6ec0ef3e552abde868}{get\+Min\+Modulation\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает минимальное интервал/глубину \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a3b37d3d826838c3a144b9ee548095f4c}\label{class_generator_a3b37d3d826838c3a144b9ee548095f4c}} 
+double \mbox{\hyperlink{class_generator_a3b37d3d826838c3a144b9ee548095f4c}{get\+Min\+Modulation\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает минимальную интервал/глубину, при этом сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a43169967197af2e9dc04108c9163fbfe}\label{class_generator_a43169967197af2e9dc04108c9163fbfe}} 
+double \mbox{\hyperlink{class_generator_a43169967197af2e9dc04108c9163fbfe}{get\+Max\+Modulation\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную интервал/глубину \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_aa90597cf4bd2ef742e37c3c908ae3f17}\label{class_generator_aa90597cf4bd2ef742e37c3c908ae3f17}} 
+double \mbox{\hyperlink{class_generator_aa90597cf4bd2ef742e37c3c908ae3f17}{get\+Max\+Modulation\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает максимальную интервал/глубину, при этом сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_af5e3bdb70b23f58cddd0f629189f90df}\label{class_generator_af5e3bdb70b23f58cddd0f629189f90df}} 
+double \mbox{\hyperlink{class_generator_af5e3bdb70b23f58cddd0f629189f90df}{get\+Step\+Modulation\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em возвращает шаг интервал/глубины \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a70474d3b0b230bafe6f7a4279f215d69}\label{class_generator_a70474d3b0b230bafe6f7a4279f215d69}} 
+double \mbox{\hyperlink{class_generator_a70474d3b0b230bafe6f7a4279f215d69}{get\+Step\+Modulation\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em возвращает шаг интервал/глубины, при этом сам определяет, какая сейчас Function==waveform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_afcf2be30ecae16655316a0db7d0b6602}\label{class_generator_afcf2be30ecae16655316a0db7d0b6602}} 
+double \mbox{\hyperlink{class_generator_afcf2be30ecae16655316a0db7d0b6602}{get\+Decimals\+Modulation\+Span}} (const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em ∂ что это? \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a7714870de5a63ef478147e3598e663d2}\label{class_generator_a7714870de5a63ef478147e3598e663d2}} 
+double \mbox{\hyperlink{class_generator_a7714870de5a63ef478147e3598e663d2}{get\+Decimals\+Modulation\+Span\+Current}} () const
+\begin{DoxyCompactList}\small\item\em ∂ что это?, при этом сам определяет, какая сейчас Function==waveform \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a4cb824d1f7f2daaa34e087acf015937b}\label{class_generator_a4cb824d1f7f2daaa34e087acf015937b}} 
+bool \mbox{\hyperlink{class_generator_a4cb824d1f7f2daaa34e087acf015937b}{is\+Valid\+Modulation\+Span}} (const double \&span, const std\+::string \&waveform) const
+\begin{DoxyCompactList}\small\item\em проверяет, что интервал/глубина для заданной формы сигнала не выходит за допустимые границы \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_generator_af72f21ab2a2007e7f446a55db2d93134}{is\+Valid\+Modulation\+Span}} (const double \&span) const
+\begin{DoxyCompactList}\small\item\em Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Amplitude. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a241210ecddb077ff10ae4e7102c80212}\label{class_generator_a241210ecddb077ff10ae4e7102c80212}} 
+bool \mbox{\hyperlink{class_generator_a241210ecddb077ff10ae4e7102c80212}{set\+Modulation\+Span}} (const double \&span) const
+\begin{DoxyCompactList}\small\item\em устанавливает интервал/глубину \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_generator_a8d133f22b76c05d033ceb61935be4f3d}\label{class_generator_a8d133f22b76c05d033ceb61935be4f3d}} 
+double \mbox{\hyperlink{class_generator_a8d133f22b76c05d033ceb61935be4f3d}{get\+Modulation\+Span}} () const
+\begin{DoxyCompactList}\small\item\em возвращает интервал/глубину \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_generator_ae114aafac0dcdf6a33c276f5baa77d1e}\label{class_generator_ae114aafac0dcdf6a33c276f5baa77d1e}} 
+\index{Generator@{Generator}!isValidAmplitude@{isValidAmplitude}}
+\index{isValidAmplitude@{isValidAmplitude}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{isValidAmplitude()}{isValidAmplitude()}}
+{\footnotesize\ttfamily bool Generator\+::is\+Valid\+Amplitude (\begin{DoxyParamCaption}\item[{const double \&}]{amplitude,  }\item[{const std\+::string \&}]{unit }\end{DoxyParamCaption}) const}
+
+
+
+Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Amplitude. 
+
+проверяет, что аплитуда для заданной формы сигнала не выходит за допустимые границы, при этом сам определяет, какая сейчас Function==waveform и Output\+Impedance \mbox{\Hypertarget{class_generator_a8157fbe6c4591e1cf97dca4cbb0ed8da}\label{class_generator_a8157fbe6c4591e1cf97dca4cbb0ed8da}} 
+\index{Generator@{Generator}!isValidFMSpan@{isValidFMSpan}}
+\index{isValidFMSpan@{isValidFMSpan}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{isValidFMSpan()}{isValidFMSpan()}}
+{\footnotesize\ttfamily bool Generator\+::is\+Valid\+F\+M\+Span (\begin{DoxyParamCaption}\item[{const int \&}]{span }\end{DoxyParamCaption}) const}
+
+
+
+Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+F\+M\+Span. 
+
+проверяет, что интервал для заданной формы сигнала не выходит за допустимые границы, при этом сам определяет, какая сейчас Function==waveform \mbox{\Hypertarget{class_generator_aab6be382a51b2e7b664f1cb5882e3fb6}\label{class_generator_aab6be382a51b2e7b664f1cb5882e3fb6}} 
+\index{Generator@{Generator}!isValidFrequency@{isValidFrequency}}
+\index{isValidFrequency@{isValidFrequency}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{isValidFrequency()}{isValidFrequency()}}
+{\footnotesize\ttfamily bool Generator\+::is\+Valid\+Frequency (\begin{DoxyParamCaption}\item[{const double \&}]{frequency }\end{DoxyParamCaption}) const}
+
+
+
+Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Frequency. 
+
+проверяет, что частота для заданной формы сигнала не выходит за допустимые границы, при этом сам определяет, какая сейчас Function==waveform \mbox{\Hypertarget{class_generator_af72f21ab2a2007e7f446a55db2d93134}\label{class_generator_af72f21ab2a2007e7f446a55db2d93134}} 
+\index{Generator@{Generator}!isValidModulationSpan@{isValidModulationSpan}}
+\index{isValidModulationSpan@{isValidModulationSpan}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{isValidModulationSpan()}{isValidModulationSpan()}}
+{\footnotesize\ttfamily bool Generator\+::is\+Valid\+Modulation\+Span (\begin{DoxyParamCaption}\item[{const double \&}]{span }\end{DoxyParamCaption}) const}
+
+
+
+Собственная разработка для проверки на адекватную величину (внутри допустимого диапазона) для функции set\+Amplitude. 
+
+проверяет, что интервал/глубина для заданной формы сигнала не выходит за допустимые границы, при этом сам определяет, какая сейчас Function==waveform \mbox{\Hypertarget{class_generator_ad9f7998ee5ee3aa71318e96962b189f2}\label{class_generator_ad9f7998ee5ee3aa71318e96962b189f2}} 
+\index{Generator@{Generator}!workWithModulationEnabled@{workWithModulationEnabled}}
+\index{workWithModulationEnabled@{workWithModulationEnabled}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{workWithModulationEnabled()}{workWithModulationEnabled()}}
+{\footnotesize\ttfamily bool Generator\+::work\+With\+Modulation\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+см. \mbox{\hyperlink{class_d_s345}{D\+S345}}\+: Programming Commands 3-\/5 (стр. 55) 
+
+проверяет возможность работы с \char`\"{}включателем\char`\"{} модуляции 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/1\+Work/\+Git\+Hub/\+Automation\+\_\+of\+\_\+experiments/\+Generator\+\_\+\+Back\+End/Generator.\+h\item 
+C\+:/1\+Work/\+Git\+Hub/\+Automation\+\_\+of\+\_\+experiments/\+Generator\+\_\+\+Back\+End/Generator.\+cpp\end{DoxyCompactItemize}

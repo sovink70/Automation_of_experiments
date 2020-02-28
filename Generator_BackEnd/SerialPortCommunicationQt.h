@@ -70,7 +70,9 @@ public:
     bool sendQuery  (const std::string &command, std::string &response,                                const std::string &terminate = "\n") const;
     std::string ask (const std::string &command,                                                       const std::string &terminate = "\n") const;
 
+    /// time to send
     double getTTS() const;
+    /// time to recieve
     double getTTR() const;
 
 protected:

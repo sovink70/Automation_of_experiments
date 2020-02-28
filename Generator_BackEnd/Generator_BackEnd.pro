@@ -8,6 +8,8 @@ QT       += core gui
 QT += serialport
 CONFIG += serialport
 
+CONFIG += warn_on
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Generator_BackEnd

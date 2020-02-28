@@ -67,7 +67,6 @@ int SRSGenerator::getReadWaitTimeout() const
     return this->srs->getReadWaitTimeout();
 }
 
-
 int SRSGenerator::numberFromString(const std::vector < std::string > &vector, const std::string &string) const {
     for(size_t i = 0 ; i < vector.size(); ++i) {
         if (vector[i] == string)
@@ -91,22 +90,17 @@ bool SRSGenerator::isValidNumber(const std::vector< std::string> &vector, const 
 }
 
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
-//∂взял из DS 345 - штука нужная. НАДО РЕАЛИЗОВАТЬ везде, вместо bool
-/// проверяет, что отправлена правильная единица измерения амплитуды сигнала
 bool SRSGenerator::isValidAmplitudeType(const std::string &unit) const
 {
     return isValidString(this->amplitudeTypeList, unit);
 }
 
-//∂ почему-то неуверен, что это можно сделать общим. Но сделаю
 std:: vector< std:: string> SRSGenerator::getAmplitudeTypeList() const
 {
    return this->amplitudeTypeList;
 }
 
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
-//∂ а может сразу величину амплитуды в виде стринга пихать? ∂∂ вообще надо пройтись по всяким to_string stod ... насколько их использование оправдано
-///устанавливает амплитуду
 bool SRSGenerator::setAmplitude(const double &amplitude, const std::string &unit) const
 {
     if (!isValidAmplitudeType(unit))
@@ -116,20 +110,18 @@ bool SRSGenerator::setAmplitude(const double &amplitude, const std::string &unit
 }
 
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
-///возвращает амплитуду
-std::string SRSGenerator::getAmplitude(const std::string &unit) const
+double SRSGenerator::getAmplitude(const std::string &unit) const
 {
    if (!isValidAmplitudeType(unit)) //if !a <=> if a==0
-        return "-1";
+        return -1;
    std::string response;
     std::string command = "AMPL" + query_suffix + separator + unit;
     if (!sendQuery(command, response))
-    return "-1";
+    return -1;
     else
-        return response;
+        return stod(response);
 }
 
-///возвращает минимальное смещение
 double SRSGenerator::getMinOffset() const
 {
     return this->minOffsetV;
@@ -163,9 +155,9 @@ bool SRSGenerator::setOffset(const double &offset) const
     return sendCommand(command);
 }
 
-std::string SRSGenerator::getOffset() const
+double SRSGenerator::getOffset() const
 {
-    return ask("OFFS?"); //.toDouble(); / пока решили выводить по максимому в ответ не double, а  string // .toDouble();
+    return stod(ask("OFFS?"));
 
 }
 
@@ -178,9 +170,9 @@ bool SRSGenerator::setFrequency(const double &frequency) const
     return sendCommand(command);
 }
 
-std::string SRSGenerator::getFrequency() const
+double SRSGenerator::getFrequency() const
 {
-    return ask("FREQ?");// toDouble();
+    return stod(ask("FREQ?"));// toDouble();
 }
 
 std::vector<std::string> SRSGenerator::getFunctionList() const
@@ -227,9 +219,9 @@ bool SRSGenerator::setInverse(const bool &inverse) const
     return sendCommand(command);
 }
 
-//мне bool непривычен, проще string integer
-std::string SRSGenerator::getInverse() const
+bool SRSGenerator::getInverse() const
 {
     //return (ask("INVT?").toInt() == 1);
-    return ask("INVT?");
+    //return ask("INVT?");
+    return (ask("INVT?") == "1");
 }

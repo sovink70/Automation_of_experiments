@@ -1,19 +1,12 @@
 #ifndef DS345_H
 #define DS345_H
 
-//#include <QObject>
-//#include <QTime>
-//#include <QSerialPort>
-//#include <QSerialPortInfo>
-//#include <QDebug>
-
 #include "SRSgenerator.h"
 
 class DS345 : public SRSGenerator
 {
-//    Q_OBJECT
 
-private: //∂ или protected?
+private:
     const double maxAmplitudeSineVpp   = 10;
     const double minAmplitudeSineVpp   = 0.01;
     const double stepAmplitudeSineVpp  = 0.01;
@@ -141,8 +134,8 @@ private: //∂ или protected?
 public:
     explicit DS345();
 
-    //ЧТО ЗА ШТУКА И ГДЕ ИСПОЛЬЗУЕТСЯ??- не исползуется, обойдёмся
-    explicit DS345(const QString &portName, const int &baudrate, const int &stopBit = 1, const int &parity = 0);
+    //∂ЧТО ЗА ШТУКА И ГДЕ ИСПОЛЬЗУЕТСЯ??- не исползуется, обойдёмся
+    //explicit DS345(const QString &portName, const int &baudrate, const int &stopBit = 1, const int &parity = 0);
     ~DS345();
 
     void initAmplitudeTypeList();
@@ -164,13 +157,13 @@ public:
     int getMaxAMDepth() const;
     bool isValidAMDepth(const int &persentage) const;
     bool setAMdepth(const int &persentage) const;
-    std::string getAMdepth() const; //int
+    int getAMdepth() const;
 
     double getMinFMSpan(const std::string &waveform) const;
     double getMaxFMSpan(const std::string &waveform) const;
     bool isValidFMSpan(const int &span, const std::string &waveform) const;
     bool setFMSpan(const double &span) const;
-    std::string getFMSpan() const;
+    double getFMSpan() const;
 
     void initModulationFunctionList();
     std::vector<std::string> getModulationFunctionList() const;
@@ -181,7 +174,7 @@ public:
     std::string getModulationFunction() const;
 
     bool setModulationEnabled(const bool &enable) const;
-    std::string getModulationEnabled() const; //bool
+    bool getModulationEnabled() const; //bool
 
     void initModulationTypeList();
     std::vector<std::string> getModulationTypeList() const;
@@ -197,7 +190,7 @@ public:
     double getDecimalsModulationRate() const;
     bool isValidModulationRate(const double &rate) const;
     bool setModulationRate(const double &rate) const;
-    std::string getModulationRate() const;
+    double getModulationRate() const;
 
     double getMinModulationSpan(const std::string &waveform) const;
     double getMaxModulationSpan(const std::string &waveform) const;
@@ -205,7 +198,7 @@ public:
     double getDecimalsModulationSpan(const std::string &waveform) const;
     bool isValidModulationSpan(const double &span, const std::string &waveform) const;
     bool setModulationSpan(const double &span) const;
-    std::string getModulationSpan() const;
+    double getModulationSpan() const;
 
 };
 

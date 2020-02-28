@@ -1,19 +1,12 @@
 #ifndef DS335_H
 #define DS335_H
 
-//#include <QObject>
-//#include <QTime>
-//#include <QSerialPort>
-//#include <QSerialPortInfo>
-//#include <QDebug>
-
 #include "SRSgenerator.h"
 
 class DS335 : public SRSGenerator
 {
-//    Q_OBJECT
 
-private: //∂ или protected?
+private:
     const double maxAmplitude50OhmsSineVpp   = 10;
     const double minAmplitude50OhmsSineVpp   = 0.05;
     const double stepAmplitude50OhmsSineVpp  = 0.01;
@@ -148,11 +141,6 @@ private: //∂ или protected?
 public:
     explicit DS335();
     ~DS335();
-
-    //∂ это вообще что, нужно ли оно и почему его нет в ds 345? удалил пока
-    void setAttemptsToConnect(const int &new_attemptsToConnect);
-    int getAttemptsToConnect() const;
-    //
 
     void initAmplitudeTypeList();
     double getMinAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const;

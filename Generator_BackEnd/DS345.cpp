@@ -377,9 +377,9 @@ bool DS345::setAMdepth(const int &persentage) const
     return sendCommand(command);
 }
 
-std::string DS345::getAMdepth() const //int
+int DS345::getAMdepth() const //int
 {
-    return ask("DPTH?"); // ask("DPTH?").toInt();
+    return stod(ask("DPTH?")); // ask("DPTH?").toInt();
 }
 
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform в string чтобы их можно было пихать сюда
@@ -405,9 +405,9 @@ bool DS345::setFMSpan(const double &span) const
     return sendCommand(command);
 }
 
-std::string DS345::getFMSpan() const
+double DS345::getFMSpan() const
 {
-    return ask("FDEV?"); //.toDouble();
+    return stod(ask("FDEV?")); //.toDouble();
 }
 
 void DS345::initModulationFunctionList()
@@ -472,11 +472,12 @@ bool DS345::setModulationEnabled(const bool &enable) const
     return sendCommand(command);
 }
 
-//мне bool непривычен, проще string integer
-std::string DS345::getModulationEnabled() const
+//ОТМЕНА: мне bool непривычен, проще string integer
+bool DS345::getModulationEnabled() const
 {
-    return ask("MENA?");
+    //return ask("MENA?");
     //return (ask("MENA?").toInt() == 1);
+    return (ask("MENA?") == "1");
 }
 
 void DS345::initModulationTypeList()
@@ -564,9 +565,9 @@ bool DS345::setModulationRate(const double &rate) const
 
 }
 
-std::string DS345::getModulationRate() const
+double DS345::getModulationRate() const
 {
-    return ask("RATE?"); //.toDouble();
+    return stod(ask("RATE?")); //.toDouble();
 }
 
 double DS345::getMinModulationSpan(const std::string &waveform) const
@@ -604,7 +605,7 @@ bool DS345::setModulationSpan(const double &span) const
     return sendCommand(command);
 }
 
-std::string DS345::getModulationSpan() const
+double DS345::getModulationSpan() const
 {
-    return ask("SPAN?"); //.toDouble();
+    return stod(ask("SPAN?")); //.toDouble();
 }

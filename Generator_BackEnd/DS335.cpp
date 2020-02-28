@@ -15,7 +15,6 @@ DS335::~DS335()
 
 }
 
-
 void DS335::initAmplitudeTypeList()
 {
     this->amplitudeTypeList.clear();
@@ -29,7 +28,7 @@ void DS335::initAmplitudeTypeList()
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
 double DS335::getMinAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const //bool &VRMS
 {
-    //∂ достаточно костыльно попытался заменить toUpper для Qstring/ не понимаю, зачем вообще так делать - можно же сразу в верхнем регистре писать
+    //∂ достаточно костыльно попытался заменить  для Qstring/ не понимаю, зачем вообще так делать - можно же сразу в верхнем регистре писать
     // учитывая то, что дальше обходятся без него - предлагаю вообще убрать
 //    if (outputZ.toUpper() == "50OHMS") {
 //    std::string str;
@@ -312,7 +311,6 @@ double DS335::getDecimalsAmplitude(const std::string &waveform, const std::strin
 }
 
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
-///проверяет, что аплитуда для заданной формы сигнала не выходит за допустимые границы
 bool DS335::isValidAmplitude(const double &amplitude, const std::string &waveform, const std::string &outputZ, const std::string &unit) const //bool &VRMS
 {
     if (!isValidAmplitudeType(unit))
@@ -411,7 +409,20 @@ void DS335::initFunctionList()
     return;
 }
 
+bool DS335::setSynchronization(const bool &synchronization) const
+{
+    std::string command = "SYNC" + separator;
+    if (synchronization)
+        command += "1";
+    else
+        command += "0";
+    return sendCommand(command);
+}
 
+bool DS335::getSynchronization() const
+{
+    return (ask("SYNC?") == "1"); //.toInt()
+}
 
 //Гоша сказал это не надо >> НАДО
 void DS335::initOutputImpedanceList()
