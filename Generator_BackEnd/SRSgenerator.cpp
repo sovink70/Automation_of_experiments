@@ -22,21 +22,6 @@ bool SRSGenerator::isValidBaudrate(const int &baudrate) const
     return isValidString(this->baudrateList, std::to_string(baudrate) ); //QString::number(baudrate)
 }
 
-//∂ для этого есть setBaudrate в SerialPortCommunicationQt
-//bool DS355SRSGenerator::changeBaudrate(const int &baudrate)
-//{
-//    if (!isValidBaudrate(baudrate))
-//        return false;
-
-//    if (!this->serial->isOpen()) {
-//        this->serial->setBaudRate((qint32) baudrate);
-//        return true;
-//    } else {
-//        this->serial->close();
-//        return setConnection(this->serial->portName(), baudrate);
-//    }
-//}
-
 void SRSGenerator::setWriteTimeout(const int &new_writeTimeout)
 {
     return this->srs->setWriteTimeout(new_writeTimeout);

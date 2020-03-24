@@ -24,8 +24,6 @@ public:
     void initBaudrateList();
     std::vector<std::string> getBaudrateList() const;
     bool isValidBaudrate(const int &baudrate) const;
-    //∂ для этого есть setBaudrate в SerialPortCommunicationQt
-    //bool changeBaudrate(const int &baudrate);
 
     void setWriteTimeout(const int &new_writeTimeout);
     int getWriteTimeout() const;

@@ -430,7 +430,7 @@ std::string Generator::getGeneratorModel() const
 ///№1 устанавливает соединение, принимает (new_port_name, new_baudrate, new_data_bits, new_stop_bits, new_parity, new_flow_control, _generatorModel)
 bool Generator::SETconnect(const std::string &new_port_name, const std::string &new_baudrate, const std::string &new_data_bits, const std::string &new_stop_bits, const std::string &new_parity, const std::string &new_flow_control, const std::string &_generatorModel) {
     //setGeneratorModel(_generatorModel); // от Вити. Считай, что new_generatorModel===_generatorModel
-    //∂ а вообще чем эти ToUpper обусловлены, на всякий случай что ли?
+    // а вообще чем эти ToUpper обусловлены, на всякий случай что ли? да
     //	QString _generatorModel = new_generatorModel.trimmed().toUpper();
         if (_generatorModel == "DS335") {
             if (this->ds335 == nullptr)
@@ -472,7 +472,7 @@ bool Generator::SETconnect(const std::string &new_port_name, const std::string &
 
 ///№2 устанавливает соединение, принимает (new_port_name, new_baudrate, new_data_bits, new_stop_bits, new_parity, new_flow_control). _generatorModel запрашивает и определяет сам
 bool Generator::SETconnect(const std::string &new_port_name, const std::string &new_baudrate, const std::string &new_data_bits, const std::string &new_stop_bits, const std::string &new_parity, const std::string &new_flow_control) {
-    //∂ а вообще чем эти ToUpper обусловлены, на всякий случай чnоли?
+    // а вообще чем эти ToUpper обусловлены, на всякий случай чnоли? да
     //	QString _generatorModel = new_generatorModel.trimmed().toUpper();
         if (this->generatorModel == "DS335") { // this->getGeneratorModel() (_generatorModel == "DS335")
             if (this->ds335 == nullptr)
@@ -576,16 +576,6 @@ bool Generator::isValidBaudrate(const int &baudrate) const
     return false;
 }
 
-//∂ пока лень разбираться, мб обойдемся
-//bool Generator::changeBaudrate(const int &baudrate)
-//{
-//    if (this->generatorModel == "DS335")
-//        return this->ds335->setBaudRate(baudrate);
-//    if (this->generatorModel == "DS345")
-//        return this->ds345->changeBaudrate(baudrate);
-//    return false;
-//}
-
 ///∂выставляет время для записи
 void Generator::setWriteTimeout(const int &new_writeTimeout)
 {
@@ -645,25 +635,6 @@ int Generator::getReadWaitTimeout() const
         return this->ds345->getReadWaitTimeout();
     return 0;
 }
-
-//∂ см в DS335.h
-//void Generator::setAttemptsToConnect(const int &new_attemptsToConnect)
-//{
-//    if (this->generatorModel == "DS335")
-//        return this->ds335->setAttemptsToConnect(new_attemptsToConnect);
-//    if (this->generatorModel == "DS345")
-//        return this->ds345->setAttemptsToConnect(new_attemptsToConnect);
-//    return;
-//}
-
-//int Generator::getAttemptsToConnect() const
-//{
-//    if (this->generatorModel == "DS335")
-//        return this->ds335->getAttemptsToConnect();
-//    if (this->generatorModel == "DS345")
-//        return this->ds345->getAttemptsToConnect();
-//    return 0;
-//}
 
 ///∂проверяет, что генератор живой
 bool Generator::isActive() const
@@ -918,7 +889,7 @@ double Generator::getStepAmplitudeCurrent(const std::string &unit) const
     return -1;
 }
 
-///∂ серьезно, что это такое??
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения амплитуды внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const
 {
     if (this->generatorModel == "DS335")
@@ -929,7 +900,7 @@ double Generator::getDecimalsAmplitude(const std::string &waveform, const std::s
 }
 
 //∂ почему _Default_ OutputImpedance?
-///∂ серьезно, что это такое??
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения амплитуды внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsAmplitude(const std::string &waveform, const std::string &unit) const
 {
     if (this->generatorModel == "DS335")
@@ -939,7 +910,7 @@ double Generator::getDecimalsAmplitude(const std::string &waveform, const std::s
     return -1;
 }
 
-///∂ серьезно, что это такое??
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения амплитуды внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsAmplitudeCurrent(const std::string &unit) const
 {
     if (this->generatorModel == "DS335")
@@ -1071,7 +1042,7 @@ double Generator::getStepOffset() const
     return -1;
 }
 
-///∂ что это такое?
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsOffset() const
 {
     if (this->generatorModel == "DS335")
@@ -1200,7 +1171,7 @@ double Generator::getStepFrequencyCurrent() const
     return -1;
 }
 
-///∂ что это такое?
+///возвращает, сколько точек после запятой воспринимается - это шаг изменения значения частоты шага интервал/глубины внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsFrequency(const std::string &waveform) const
 {
     if (this->generatorModel == "DS335")
@@ -1211,7 +1182,7 @@ double Generator::getDecimalsFrequency(const std::string &waveform) const
 
 }
 
-///∂ что это такое?
+///возвращает, сколько точек после запятой воспринимается - это шаг изменения значения частоты шага интервал/глубины внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать", при этом сам определяет, какая сейчас Function==waveform
 double Generator::getDecimalsFrequencyCurrent() const
 {
     if (this->generatorModel == "DS335")
@@ -1987,7 +1958,7 @@ double Generator::getStepModulationRate() const
     return -1;
 }
 
-///∂ что это такое?
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения шага скорости модуляции внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsModulationRate() const
 {
     if (this->generatorModel == "DS335")
@@ -2115,7 +2086,7 @@ double Generator::getStepModulationSpanCurrent() const
     return -1;
 }
 
-///∂ что это?
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения шага интервал/глубины внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать"
 double Generator::getDecimalsModulationSpan(const std::string &waveform) const
 {
     if (this->generatorModel == "DS335")
@@ -2125,7 +2096,7 @@ double Generator::getDecimalsModulationSpan(const std::string &waveform) const
     return -1;
 }
 
-///∂ что это?, при этом сам определяет, какая сейчас Function==waveform
+/// возвращает, сколько точек после запятой воспринимается - это шаг изменения значения шага интервал/глубины внутри окошка (2 стрелочки вниз вверх) . Гоша:"Артуру её не обязательно делать", при этом сам определяет, какая сейчас Function==waveform
 double Generator::getDecimalsModulationSpanCurrent() const
 {
     if (this->generatorModel == "DS335")

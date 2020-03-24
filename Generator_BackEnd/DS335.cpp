@@ -28,7 +28,7 @@ void DS335::initAmplitudeTypeList()
 // вот тут Артур должен привызове этой команды сразу же перевести QString &waveform, const QString &unit в string чтобы их можно было пихать сюда
 double DS335::getMinAmplitude(const std::string &waveform, const std::string &outputZ, const std::string &unit) const //bool &VRMS
 {
-    //∂ достаточно костыльно попытался заменить  для Qstring/ не понимаю, зачем вообще так делать - можно же сразу в верхнем регистре писать
+    // достаточно костыльно попытался заменить  для Qstring/ не понимаю, зачем вообще так делать - можно же сразу в верхнем регистре писать
     // учитывая то, что дальше обходятся без него - предлагаю вообще убрать
 //    if (outputZ.toUpper() == "50OHMS") {
 //    std::string str;
